@@ -4,6 +4,7 @@
       <RouterView />
     </div>
 
+    <!-- mobile navbar disappears sm and up -->
     <div sm:hidden absolute bottom-0 bg-cyan-400 w-full>
       <MobileNavbar />
     </div>
