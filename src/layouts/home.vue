@@ -4,7 +4,7 @@
       <RouterView />
     </div>
 
-    <div sm:hidden absolute bottom-0 bg-gray-500 w-full>
+    <div sm:hidden absolute bottom-0 bg-cyan-400 w-full>
       <MobileNavbar />
     </div>
   </main>

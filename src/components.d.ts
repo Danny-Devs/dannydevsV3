@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Counter: typeof import('./components/Counter.vue')['default']
+    DesktopNavbar: typeof import('./components/ui/DesktopNavbar.vue')['default']
     Footer: typeof import('./components/Footer.vue')['default']
     MobileNavbar: typeof import('./components/ui/MobileNavbar.vue')['default']
     OldFooter: typeof import('./components/OldFooter.vue')['default']
