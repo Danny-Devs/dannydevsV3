@@ -5,7 +5,7 @@
 <template>
   <main>
     <div>
-      <p>logo</p>
+      <p>DannyDevs logo</p>
     </div>
 
     <ul>
