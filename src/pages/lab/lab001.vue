@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <p>lab</p>
+  <p>Welcome to lab001!</p>
 </template>
 
 <style scoped>
