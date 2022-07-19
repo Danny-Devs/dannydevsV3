@@ -18,7 +18,13 @@ const props = defineProps({
     </router-link>
     <!-- end logo -->
 
-    <div sm:flex sm:mt-3>
+    <div flex sm:mt-3 items-center>
+      <!-- social links for mobile -->
+      <div flex sm:hidden>
+        <a href="https://www.linkedin.com/in/danielahn47/" target="_blank" text-2xl i-carbon-logo-linkedin />
+        <a href="https://twitter.com/dannydevsss" target="_blank" text-2xl i-carbon-logo-twitter />
+      </div>
+
       <!-- navigation links for sm: and up -->
       <section hidden sm:block dark:text-cyan-400>
         <div class="flex">
@@ -51,6 +57,7 @@ const props = defineProps({
       </section>
       <!-- end navigation links for sm: and up -->
 
+      <!-- light/dark togle -->
       <div @click="toggleDark()">
         <div
           v-if="!isDark"
@@ -66,6 +73,7 @@ const props = defineProps({
           text-cyan-400
         />
       </div>
+      <!-- end light/dark toggle -->
     </div>
   </main>
 </template>
