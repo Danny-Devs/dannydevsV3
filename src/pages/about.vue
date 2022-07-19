@@ -3,7 +3,11 @@
 </script>
 
 <template>
-  <p>about</p>
+  <main container mx-auto p-4 >
+    <h1 text-center text-xl>about me</h1>
+
+    
+  </main>
 </template>
 
 <style scoped>

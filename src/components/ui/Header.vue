@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <main sm:px-12 lg:px-24 xl:px-96 dark:bg-slate-900 :class="color" flex justify-between items-center>
+  <main sm:px-6 container mx-auto dark:bg-slate-900 :class="color" flex justify-between items-center>
     <!-- logo -->
     <router-link to="/">
       <div pl-3 pt-7 pb-4>
@@ -20,7 +20,7 @@ const props = defineProps({
 
     <div flex sm:mt-3 items-center>
       <!-- social links for mobile -->
-      <div flex sm:hidden>
+      <div flex sm:hidden dark:text-cyan-300>
         <a href="https://www.linkedin.com/in/danielahn47/" target="_blank" text-2xl i-carbon-logo-linkedin />
         <a href="https://twitter.com/dannydevsss" target="_blank" text-2xl i-carbon-logo-twitter />
       </div>
@@ -29,28 +29,27 @@ const props = defineProps({
       <section hidden sm:block dark:text-cyan-400>
         <div class="flex">
           <router-link
-            to="/"
+            to="/lab"
             flex
-
             items-center
           >
-            <p text-lg mr-6>
-              Home
-            </p>
-          </router-link>
-          <router-link to="/lab" flex items-center>
-            <p text-lg mr-6>
+            <p px-3 py-1 rounded-lg text-lg mr-3 hover:bg-cyan-300 transition hover:-translate-y-2px hover:shadow-lg>
               Lab
             </p>
           </router-link>
           <router-link to="/blog" flex items-center>
-            <p text-lg mr-6>
+            <p px-3 py-1 rounded-lg text-lg mr-3 hover:bg-cyan-300 transition hover:-translate-y-2px hover:shadow-lg>
               Blog
             </p>
           </router-link>
           <router-link to="/about" flex items-center>
-            <p text-lg mr-6>
+            <p px-3 py-1 rounded-lg text-lg mr-3 hover:bg-cyan-300 transition hover:-translate-y-2px hover:shadow-lg>
               About
+            </p>
+          </router-link>
+          <router-link to="/links" flex items-center>
+            <p px-3 py-1 rounded-lg text-lg mr-6 hover:bg-cyan-300 transition hover:-translate-y-2px hover:shadow-lg>
+              Links
             </p>
           </router-link>
         </div>
@@ -58,11 +57,11 @@ const props = defineProps({
       <!-- end navigation links for sm: and up -->
 
       <!-- light/dark togle -->
-      <div @click="toggleDark()">
+      <div hover:scale-120 transition hover:cursor-pointer @click="toggleDark()">
         <div
           v-if="!isDark"
           mr-2
-          text-2xl
+          text-xl
           i-carbon-moon
         />
         <div
