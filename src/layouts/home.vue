@@ -1,7 +1,7 @@
 <template>
   <main class="h-screen relative dark:bg-gray-800 bg-red-200">
     <!-- mobile header -->
-    <MobileHeader />
+    <Header />
     <!-- sm and up navbar, located at top -->
 
     <div>

@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     Counter: typeof import('./components/Counter.vue')['default']
     DesktopNavbar: typeof import('./components/ui/DesktopNavbar.vue')['default']
     Footer: typeof import('./components/Footer.vue')['default']
+    Header: typeof import('./components/ui/Header.vue')['default']
     MobileHeader: typeof import('./components/ui/MobileHeader.vue')['default']
     MobileNavbar: typeof import('./components/ui/MobileNavbar.vue')['default']
     OldFooter: typeof import('./components/OldFooter.vue')['default']
