@@ -1,9 +1,14 @@
 <script setup>
-
+const props = defineProps({
+  color: {
+    type: String,
+    default: 'bg-cyan-400',
+  },
+})
 </script>
 
 <template>
-  <main flex py-4 px-6 justify-between>
+  <main flex py-4 px-6 justify-between :class="color" dark:bg-cyan-500 bg-cyan-400>
     <router-link
       to="/"
       flex

@@ -1,15 +1,14 @@
 <template>
-  <main class="h-screen relative dark:bg-gray-800 bg-red-200">
+  <main class="h-screen bg-red50 relative dark:bg-slate-900">
     <!-- mobile header -->
     <Header />
-    <!-- sm and up navbar, located at top -->
 
     <div>
       <RouterView />
     </div>
 
     <!-- mobile bottom navbar disappears sm and up -->
-    <div sm:hidden absolute bottom-0 dark:bg-cyan-500 bg-cyan-400 w-full>
+    <div sm:hidden absolute fixed bottom-0 w-full>
       <MobileNavbar />
     </div>
   </main>

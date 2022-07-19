@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <main>
+  <main bg-red-50 dark:bg-slate-900>
     <div py-5 />
 
     <div class="sm:(w-1/2 mx-auto) xl:w-1/3" py-4 pl-12 dark:bg-slate-500 bg-red-500 flex items-center justify-center>
@@ -26,7 +26,7 @@
         My name is Danny, aka DannyDevs.
       </p>
 
-      <div class="sm:w-2/3 xl:w-1/3 mx-auto" dark:text-cyan-300 dark:bg-gray-900 bg-red-50 px-6 py-6 rounded-lg>
+      <div class="sm:w-2/3 xl:w-1/3 mx-auto" dark:text-cyan-300 dark:bg-gray-900 bg-white px-6 py-6 rounded-lg>
         <p mb-4>
           I'm a front end web developer, designer, and content creator who primarily works in Vue JS. I also admire Svelte.
         </p>

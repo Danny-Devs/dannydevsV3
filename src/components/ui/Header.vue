@@ -1,13 +1,22 @@
 <script setup>
-
+const props = defineProps({
+  color: {
+    type: String,
+    default: 'bg-cyan-400',
+  },
+})
 </script>
 
 <template>
-  <main sm:px-12 lg:px-24 xl:px-96 dark:bg-gray-900 bg-cyan-400 flex justify-between items-center>
-    <div pl-2 pt-7 pb-4>
-      <img v-if="!isDark" w-48 src="/dannydevs-logo.png" alt="DannyDevs logo">
-      <img v-if="isDark" w-48 src="/dannydevs-logo-cyan.png" alt="DannyDevs logo">
-    </div>
+  <main sm:px-12 lg:px-24 xl:px-96 dark:bg-slate-900 :class="color" flex justify-between items-center>
+    <!-- logo -->
+    <router-link to="/">
+      <div pl-3 pt-7 pb-4>
+        <img v-if="!isDark" w-48 src="/dannydevs-logo.png" alt="DannyDevs logo">
+        <img v-if="isDark" w-48 src="/dannydevs-logo-cyan.png" alt="DannyDevs logo">
+      </div>
+    </router-link>
+    <!-- end logo -->
 
     <div sm:flex sm:mt-3>
       <!-- navigation links for sm: and up -->
