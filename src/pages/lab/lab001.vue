@@ -23,7 +23,7 @@ const toggleExp = () => {
     <!-- end header -->
 
     <!-- copy -->
-    <div mx-4 mt-10>
+    <div mx-4 md:mx-16 lg:mx-64 mt-10>
       <p text-left mb-8>
         The animations below were made using Vue's built-in <a hover:cursor-pointer font-bold href="https://vuejs.org/guide/built-ins/transition.html" target="_blank">Transition component</a> and regular old CSS! The Transition component is a utility animation "wrapper" component that wraps the markup whose state we want to animate. It wires things up to allow us to start animating in CSS right away.
       </p>
@@ -115,10 +115,10 @@ const toggleExp = () => {
       </div>
 
       <div mx-4 md:mx-16 lg:mx-64>
-        <p mt-4 px-4>
+        <p mt-4 lg:mt-8 xl:mt-12>
           You can create your own custom animations using using <a font-semibold href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions" target="_blank">CSS transitions</a> as well as <a font-semibold href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations" target="_blank">CSS keyframe animations</a>.
         </p>
-        <p mt-4 px-4 pb-32>
+        <p mt-4 pb-32>
           I'll be doing some experimentation with GSAP (Greensock animation) next, which allows for more animation control, power, and DX (developer experience)! Until next time, DannyDevs out!
         </p>
       </div>
