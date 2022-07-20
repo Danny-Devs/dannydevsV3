@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <p>Blog</p>
+  <main dark:text-cyan-300>
+    <p>Blog</p>
+  </main>
 </template>
 
 <style scoped>

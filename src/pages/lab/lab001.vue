@@ -23,7 +23,7 @@ const toggleExp = () => {
     <!-- end header -->
 
     <!-- copy -->
-    <div mx-4 mt-10 >
+    <div mx-4 mt-10>
       <p text-left mb-8>
         The animations below were made using Vue's built-in <a hover:cursor-pointer font-bold href="https://vuejs.org/guide/built-ins/transition.html" target="_blank">Transition component</a> and regular old CSS! The Transition component is a utility animation "wrapper" component that wraps the markup whose state we want to animate. It wires things up to allow us to start animating in CSS right away.
       </p>
@@ -38,6 +38,8 @@ const toggleExp = () => {
 
       <div text-center>
         <button
+          class="dark:hover:bg-indigo-600"
+
           shadow-lg
           transition
           hover:scale-105
@@ -57,9 +59,9 @@ const toggleExp = () => {
         </button>
       </div>
 
-      <div h-56 sm:h-36 grid grid-cols-1 sm:grid-cols-2 gap-4 my-8 md:px-8 lg:px-12 xl:px-36>
+      <div h-60 sm:h-36 grid grid-cols-1 sm:grid-cols-2 gap-4 my-8 md:px-8 lg:px-12 xl:px-36>
         <Transition name="fade">
-          <p v-if="!isAVisible" text-xl text-left mx-auto mt-6>
+          <p v-if="!isAVisible" text-xl text-left mx-auto mt-4>
             This piece of markup fades in and out in half a second, using Transition and the CSS opacity property.
           </p>
         </Transition>
@@ -72,12 +74,13 @@ const toggleExp = () => {
     <hr my-12>
     <!-- section experiments -->
     <div>
-      <p text-center py-2 class=" w-7/8 md:w-1/2 mx-auto" border-b-1 text-xl mb-2>
+      <p text-center py-2 class=" w-5/8 md:w-1/2 mx-auto" border-b-1 text-xl mb-2>
         Experimenting with CSS animation
       </p>
 
       <div text-center>
         <button
+          class="dark:hover:bg-indigo-600"
           dark:bg-indigo-700
           dark:text-white
           shadow-lg
@@ -98,7 +101,7 @@ const toggleExp = () => {
         </button>
       </div>
 
-      <div h-24 flex justify-center mt-6>
+      <div h-24 flex justify-center mt-7>
         <Transition name="slide">
           <p v-if="!isExp" text-6xl sm:text-7xl mt-6>
             Hello&nbsp;
@@ -111,8 +114,8 @@ const toggleExp = () => {
         </Transition>
       </div>
 
-      <div mx-4 mt-10 md:mx-16 lg:mx-64>
-        <p mt-8 px-4>
+      <div mx-4 md:mx-16 lg:mx-64>
+        <p mt-4 px-4>
           You can create your own custom animations using using <a font-semibold href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions" target="_blank">CSS transitions</a> as well as <a font-semibold href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations" target="_blank">CSS keyframe animations</a>.
         </p>
         <p mt-4 px-4 pb-32>
@@ -212,7 +215,7 @@ from {
 
 .rotate-leave-to {
   opacity: 0;
-  background-color: red;
+  background-color: cyan;
 }
 </style>
 

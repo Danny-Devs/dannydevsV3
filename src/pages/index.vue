@@ -1,27 +1,126 @@
 <script setup>
+import { useMyStore } from '~/store/myStore'
 
+const isAnimating = ref(true)
+const numMouseovers = ref(0)
+const showDizzy = ref(false)
+const nextDialog = ref(false)
+const modalCard = ref(null)
+
+const myStore = useMyStore()
+
+const triggerAnimation = () => {
+  isAnimating.value = !isAnimating.value
+  setTimeout(() => {
+    isAnimating.value = !isAnimating.value
+  }, 50)
+  numMouseovers.value++
+  if (numMouseovers.value > 2 && !myStore.hasPlayed) {
+    showDizzy.value = true
+    numMouseovers.value = -1000
+  }
+}
+
+const closeModal = () => {
+  showDizzy.value = false
+  myStore.hasPlayed = true
+}
+
+onClickOutside(modalCard, () => {
+  showDizzy.value = false
+})
 </script>
 
 <template>
   <main bg-red-50 dark:bg-slate-900 container mx-auto>
+    <!-- spacer -->
     <div py-5 />
 
-    <div class="sm:(w-2/3 mx-auto) xl:w-1/2" py-4 pl-12 dark:bg-slate-500 bg-red-500 flex items-center justify-center>
+    <!-- hero -->
+    <div class="sm:(w-2/3 mx-auto) lg:w-1/2 xl:w-1/3" py-4 pl-12 dark:bg-slate-500 bg-red-500 flex items-center justify-center>
       <div>
-        <img class="animated-rotation" w-36 src="/dannydevs-avatar.png" alt="DannyDevs avatar">
+        <router-link to="/about">
+          <img
+            hover:cursor-pointer
+            hover:scale-101
+            transition
+            :class="isAnimating ? 'animated-rotation' : ''"
+            alt="DannyDevs avatar"
+            src="/dannydevs-avatar.png"
+            w-36
+            @mouseover="triggerAnimation"
+          >
+        </router-link>
       </div>
-      <div>
+
+      <!-- modal -->
+      <Transition name="fade">
+        <div v-if="showDizzy" absolute top-0 bottom-0 right-0 left-0>
+          <!-- modal background -->
+          <div bg-gray-800 opacity-60 w-full h-full />
+          <!-- modal card -->
+
+          <div ref="modalCard" bg-red-300 absolute class="p-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div hover:cursor-pointer i-carbon-close text-2xl mb-1 @click="showDizzy = false" />
+            <div bg-red-50>
+              <div py-6 px-10>
+                <slot name="body" />
+                <p v-if="!nextDialog" text-xl>
+                  Whoa, I'm getting real dizzy up in hizzy!!!
+                </p>
+                <p v-else-if="nextDialog" text-xl>
+                  Those CSS animations are something, aren't they?
+                </p>
+              </div>
+            </div>
+            <div text-right>
+              <button
+                v-if="!nextDialog"
+                bg-red-500
+                mt-2
+                px-5
+                py-2
+                rounded-lg
+                text-lg
+                @click="nextDialog = true"
+              >
+                Next
+              </button>
+              <button
+                v-if="nextDialog"
+                bg-red-500
+                mt-2
+                px-5
+                py-2
+                rounded-lg
+                text-lg
+                @click="closeModal"
+              >
+                Close
+              </button>
+              <slot name="footer" />
+            </div>
+          </div>
+        </div>
+      </Transition>
+
+      <div ml-4>
         <p text-2xl text-center font-bold>
           Hi there!
         </p>
         <p text-2xl text-center font-bold mr-6>
-          Welcome to my homepage.
+          Welcome to my
+        </p>
+        <p text-2xl text-center font-bold mr-6>
+          homepage.
         </p>
       </div>
     </div>
+    <!-- end hero -->
     <br>
 
-    <div text-lg px-4>
+    <!-- main content -->
+    <div text-lg px-4 pb-24>
       <p dark:font-normal font-bold text-xl mb-6 text-center dark:text-cyan-300>
         My name is Danny, aka DannyDevs.
       </p>
@@ -50,13 +149,14 @@
         </p>
       </div>
     </div>
+    <!-- end main content -->
   </main>
 </template>
 
 <style scoped>
 .animated-rotation {
   animation: rotation .2s linear;
-  /* animation-iteration-count: 1; */
+  animation-iteration-count: 2;
 }
 @keyframes rotation {
   0% {
@@ -75,6 +175,24 @@
     transform: rotate(-5deg);
   }
 
+}
+
+.fade-enter-active
+{
+  transition: opacity .5s;
+  opacity: 1;
+}
+.fade-leave-active {
+  transition: opacity .5s;
+  opacity: 1;
+}
+
+.fade-enter-from
+{
+  opacity: 0;
+}
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
 

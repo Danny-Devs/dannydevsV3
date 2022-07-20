@@ -7,6 +7,9 @@
     <h1 text-center text-xl>
       links
     </h1>
+    <p>
+      <a href="https://www.npmjs.com/package/json-server" target="_blank">json-server</a> - a fake REST API server for testing and prototyping
+    </p>
   </main>
 </template>
 
