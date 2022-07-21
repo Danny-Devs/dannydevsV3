@@ -5,7 +5,7 @@ import Blog001 from './blog001.md'
 <template>
   <main dark:text-cyan-300 min-h-screen container mx-auto>
     <!-- spacing goes below -->
-    <div px-9 pt-6 pb-24>
+    <div px-4 sm:px-9 pt-6 pb-24>
       <!-- insert splash image here -->
 
       <Blog001 />

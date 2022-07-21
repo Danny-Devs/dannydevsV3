@@ -3,7 +3,7 @@ import Links from '../../components/content/links.md'
 </script>
 
 <template>
-  <div container mx-auto py-6 min-h-screen dark:text-cyan-300>
+  <div container mx-auto px-4 py-6 min-h-screen dark:text-cyan-300>
     <Links />
   </div>
 </template>

@@ -6,10 +6,10 @@
   <div container mx-auto bg-cyan-400>
     <div flex px-8 py-4 text-xl justify-between>
       <div flex gap-3>
-        <div i-carbon-logo-linkedin />
-        <div i-carbon-logo-twitter />
-        <div i-carbon-logo-github />
-        <div i-carbon-email />
+        <a hover:text-gray-700 href="https://www.linkedin.com/in/danielahn47/" i-carbon-logo-linkedin />
+        <a hover:text-gray-700 href="https://twitter.com/dannydevsss" i-carbon-logo-twitter />
+        <a hover:text-gray-700 href="https://github.com/Danny-Devs" i-carbon-logo-github />
+        <a hover:text-gray-700 href="mailto:et3rnal.d@gmail.com?subject=From DannyDevs.com" i-carbon-email />
       </div>
       <p text-base>
         &copy; Daniel Ahn {{ new Date().getFullYear() }}

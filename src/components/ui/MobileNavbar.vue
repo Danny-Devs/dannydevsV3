@@ -38,6 +38,12 @@ const props = defineProps({
         About
       </p>
     </router-link>
+    <router-link to="/links" flex flex-col items-center>
+      <p text-xl i-carbon-list />
+      <p text-sm>
+        Links
+      </p>
+    </router-link>
   </main>
 </template>
 
