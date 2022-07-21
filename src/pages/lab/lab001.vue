@@ -11,19 +11,21 @@ const toggleExp = () => {
 </script>
 
 <template>
-  <div container px-4 sm:px-8 lg:px-36 mx-auto h-screen mt-4 dark:text-cyan-300>
+  <div container px-4 sm:px-8 lg:px-36 mx-auto min-h-screen mt-4 dark:text-cyan-300>
     <!-- header -->
     <div pt-1 sm:pt-4 pb-4 flex justify-between items-center>
       <h2 text-3xl>
         lab001: Animation and Vue
       </h2>
-      <p>July 18, 2022</p>
+      <p text-center>
+        July 18, 2022
+      </p>
     </div>
     <hr>
     <!-- end header -->
 
     <!-- copy -->
-    <div mx-4 md:mx-16 lg:mx-64 mt-10>
+    <div mx-4 md:mx-16 lg:mx-32 mt-10>
       <p text-left mb-8>
         The animations below were made using Vue's built-in <a hover:cursor-pointer font-bold href="https://vuejs.org/guide/built-ins/transition.html" target="_blank">Transition component</a> and regular old CSS! The Transition component is a utility animation "wrapper" component that wraps the markup whose state we want to animate. It wires things up to allow us to start animating in CSS right away.
       </p>
@@ -65,7 +67,7 @@ const toggleExp = () => {
             This piece of markup fades in and out in half a second, using Transition and the CSS opacity property.
           </p>
         </Transition>
-        <p v-if="!isAVisible" text-xl text-left mx-auto mt-6>
+        <p v-if="!isAVisible" text-xl text-left mx-auto mt-4>
           This piece of markup has no animation on it. This is what transitions look like out of the box. Which do you like better?
         </p>
       </div>
@@ -114,7 +116,7 @@ const toggleExp = () => {
         </Transition>
       </div>
 
-      <div mx-4 md:mx-16 lg:mx-64>
+      <div mx-4 md:mx-16 lg:mx-24>
         <p mt-4 lg:mt-8 xl:mt-12>
           You can create your own custom animations using using <a font-semibold href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions" target="_blank">CSS transitions</a> as well as <a font-semibold href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations" target="_blank">CSS keyframe animations</a>.
         </p>

@@ -7,6 +7,7 @@ const showDizzy = ref(false)
 const nextDialog = ref(false)
 const modalCard = ref(null)
 
+// access global state
 const myStore = useMyStore()
 
 const triggerAnimation = () => {
@@ -32,7 +33,7 @@ onClickOutside(modalCard, () => {
 </script>
 
 <template>
-  <main bg-red-50 dark:bg-slate-900 container mx-auto>
+  <main bg-red-50 dark:bg-slate-900 container mx-auto min-h-screen>
     <!-- spacer -->
     <div py-5 />
 
@@ -55,20 +56,20 @@ onClickOutside(modalCard, () => {
 
       <!-- modal -->
       <Transition name="fade">
-        <div v-if="showDizzy" absolute top-0 bottom-0 right-0 left-0>
+        <div v-if="showDizzy" absolute top-0 class="-bottom-96" right-0 left-0>
           <!-- modal background -->
           <div bg-gray-800 opacity-60 w-full h-full />
           <!-- modal card -->
 
-          <div ref="modalCard" bg-red-300 absolute class="p-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div ref="modalCard" bg-red-300 absolute class="p-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-96">
             <div hover:cursor-pointer i-carbon-close text-2xl mb-1 @click="showDizzy = false" />
             <div bg-red-50>
               <div py-6 px-10>
                 <slot name="body" />
-                <p v-if="!nextDialog" text-xl>
+                <p v-if="!nextDialog" text-lg>
                   Whoa, I'm getting real dizzy up in hizzy!!!
                 </p>
-                <p v-else-if="nextDialog" text-xl>
+                <p v-else-if="nextDialog" text-lg>
                   Those CSS animations are something, aren't they?
                 </p>
               </div>
@@ -81,7 +82,10 @@ onClickOutside(modalCard, () => {
                 px-5
                 py-2
                 rounded-lg
-                text-lg
+                hover:bg-red-400
+                shadow-md
+                active:shadow-none
+                transition
                 @click="nextDialog = true"
               >
                 Next
@@ -89,11 +93,16 @@ onClickOutside(modalCard, () => {
               <button
                 v-if="nextDialog"
                 bg-red-500
+                hover:bg-red-400
+                active:bg-red-500
+                shadow-md
+                active:shadow-none
+                transition
                 mt-2
                 px-5
                 py-2
                 rounded-lg
-                text-lg
+
                 @click="closeModal"
               >
                 Close
@@ -120,7 +129,7 @@ onClickOutside(modalCard, () => {
     <br>
 
     <!-- main content -->
-    <div text-lg px-4 pb-24>
+    <div text-lg px-4 pb-12>
       <p dark:font-normal font-bold text-xl mb-6 text-center dark:text-cyan-300>
         My name is Danny, aka DannyDevs.
       </p>
@@ -132,19 +141,19 @@ onClickOutside(modalCard, () => {
 
         <p mb-4>
           You can find examples of my work in the <router-link font-bold underline to="/lab">
-            Lab
+            <a>Lab</a>
           </router-link>.
         </p>
 
         <p mb-4>
           I write and educate about all things webdev in my <router-link font-bold underline to="/blog">
-            blog
+            <a>blog</a>
           </router-link>.
         </p>
 
         <p>
           Learn more about <router-link font-bold underline to="/about">
-            me
+            <a>me</a>
           </router-link>. I'm available for employment opportunities!
         </p>
       </div>

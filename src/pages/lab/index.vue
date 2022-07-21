@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <main class="text-center text-gray-700 dark:text-cyan-300">
+  <main class="text-center text-gray-700 dark:text-cyan-300 min-h-screen">
     <h1 text-2xl my-6>
       Welcome to my lab!
     </h1>

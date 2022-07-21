@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     DesktopFooter: typeof import('./components/ui/DesktopFooter.vue')['default']
     Header: typeof import('./components/ui/Header.vue')['default']
+    Links: typeof import('./components/content/links.md')['default']
     MobileNavbar: typeof import('./components/ui/MobileNavbar.vue')['default']
     OldFooter: typeof import('./components/OldFooter.vue')['default']
     README: typeof import('./components/README.md')['default']
