@@ -1,3 +1,12 @@
+<script setup>
+const { x, y } = useWindowScroll()
+
+onMounted(() => {
+  x.value = 0
+  y.value = 0
+})
+</script>
+
 <template>
   <main class=" bg-red-50  dark:bg-slate-900 min-h-screen">
     <!-- mobile header -->

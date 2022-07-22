@@ -10,6 +10,10 @@ const modalCard = ref(null)
 // access global state
 const myStore = useMyStore()
 
+onMounted(() => {
+  window.scrollTo(0, 0)
+})
+
 const triggerAnimation = () => {
   isAnimating.value = !isAnimating.value
   setTimeout(() => {

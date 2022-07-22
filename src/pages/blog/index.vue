@@ -1,5 +1,9 @@
 <script setup>
 import Blog001 from './blog001.md'
+
+onMounted(() => {
+  window.scrollTo(0, 0)
+})
 </script>
 
 <template>
