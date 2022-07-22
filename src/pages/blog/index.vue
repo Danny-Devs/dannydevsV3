@@ -1,5 +1,5 @@
 <script setup>
-import Blog001 from './blog001.md'
+import Blog001 from '../../components/content/blog001.md'
 
 onMounted(() => {
   window.scrollTo(0, 0)
@@ -11,8 +11,9 @@ onMounted(() => {
     <!-- spacing goes below -->
     <div px-4 sm:px-9 pt-6 pb-24>
       <!-- insert splash image here -->
-
-      <Blog001 />
+      <p text-xl>Latest post:</p>
+      <hr mt-1>
+      <Blog002 />
     </div>
 
     <!-- right sidebar -->
@@ -20,7 +21,7 @@ onMounted(() => {
       <p border-b-2 border-orange-600 pt-4 pb-1 w-full bg-orange-400 rounded-tl-lg rounded-tr-lg text-center>
         Contents:
       </p>
-      <div px-6 py-6 >
+      <div px-6 py-6>
         <div>
           <p mb-4>
             Notes
@@ -29,7 +30,7 @@ onMounted(() => {
             Blog 001: How I made this blog post
           </p>
           <p mb-4>
-            Blog 001: How I made this blog post
+            Blog 002: Why Vue 3 is Poised and Ready for its coming Golden Age
           </p>
         </div>
       </div>
@@ -43,5 +44,5 @@ onMounted(() => {
 
 <route lang="yaml">
 meta:
-  layout: home
+  layout: blog
 </route>
