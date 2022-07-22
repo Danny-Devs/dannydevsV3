@@ -12,6 +12,10 @@
 
 [Nuxt](https://v3.nuxtjs.org/) is a metaframework built on top of Vue. It's currently a release candidate--almost ready for production. Interestingly, I find that the Vitesse template already contains many of Nuxt 3's features, even static site generation via a Vite plugin! When Nuxt 3 comes out though, I will be checking it out for sure, as I'm sure it has many cool unique features.
 
+## Web/App Icon Image Generator
+
+[PWAbuilder Image Generator](https://www.pwabuilder.com/imageGenerator) creates app icon sets for mobile and Windows. Provide a 512x512 or larger square PNG and the Image Generator will spit out a zip file with complete icon sets of varying resolution for each chosen platform.
+
 ## Backend
 
 [json-server](https://www.npmjs.com/package/json-server) is a fake REST API server for testing and prototyping. Spin up the server in VSCode and voila! you can interact with it as though it were a public API--but the 'database' is simply a db.json file in your front end project's root directory!
