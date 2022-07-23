@@ -1,6 +1,9 @@
 <script setup>
+const { x, y } = useWindowScroll()
+
 onMounted(() => {
-  window.scrollTo(0, 0)
+  x.value = 0
+  y.value = 0
 })
 </script>
 
@@ -9,12 +12,17 @@ onMounted(() => {
     <h1 text-2xl my-6>
       Welcome to my lab!
     </h1>
-    <p mb-4>
+    <p px-2 mb-4>
       You can check out my web dev experiments below:
     </p>
     <router-link to="/lab/lab001">
-      <p text-xl hover:underline>
+      <p text-xl pb-1 underline>
         Lab001
+      </p>
+    </router-link>
+    <router-link pb-1 to="/lab/lab002">
+      <p text-xl underline>
+        Lab002
       </p>
     </router-link>
   </main>

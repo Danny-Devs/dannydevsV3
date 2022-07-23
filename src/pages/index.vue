@@ -10,8 +10,11 @@ const modalCard = ref(null)
 // access global state
 const myStore = useMyStore()
 
+// set default scroll position
+const { x, y } = useWindowScroll()
 onMounted(() => {
-  window.scrollTo(0, 0)
+  x.value = 0
+  y.value = 0
 })
 
 const triggerAnimation = () => {
@@ -53,6 +56,7 @@ onClickOutside(modalCard, () => {
             alt="DannyDevs avatar"
             src="/dannydevs-avatar.png"
             w-36
+            sm:w-24
             @mouseover="triggerAnimation"
           >
         </router-link>
@@ -118,13 +122,13 @@ onClickOutside(modalCard, () => {
       </Transition>
 
       <div ml-4>
-        <p text-2xl text-center font-bold>
+        <p sm:text-xl text-2xl text-center font-bold>
           Hi there!
         </p>
-        <p text-2xl text-center font-bold mr-6>
+        <p sm:text-xl text-2xl text-center font-bold mr-6>
           Welcome to my
         </p>
-        <p text-2xl text-center font-bold mr-6>
+        <p sm:text-xl text-2xl text-center font-bold mr-6>
           homepage.
         </p>
       </div>
@@ -138,7 +142,7 @@ onClickOutside(modalCard, () => {
         My name is Danny, aka DannyDevs.
       </p>
 
-      <div class="sm:w-4/5 xl:w-2/3 mx-auto" dark:text-cyan-300 dark:bg-gray-900 bg-white px-6 py-6 rounded-lg>
+      <div text-base class="sm:w-4/5 xl:w-2/3 mx-auto" dark:text-cyan-300 dark:bg-gray-900 bg-white px-6 py-6 rounded-lg>
         <p mb-4>
           I'm a front end web developer, designer, and content creator who primarily works in Vue JS. I also admire Svelte.
         </p>

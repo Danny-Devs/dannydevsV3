@@ -1,23 +1,35 @@
 <script setup>
 import Blog001 from '../../components/content/blog001.md'
 
+const { x, y } = useWindowScroll()
+
 onMounted(() => {
-  window.scrollTo(0, 0)
+  x.value = 0
+  y.value = 0
 })
 </script>
 
 <template>
-  <main flex justify-center dark:text-cyan-300 min-h-screen container mx-auto>
+  <main flex justify-center text-center dark:text-cyan-300 min-h-screen container mx-auto>
     <!-- spacing goes below -->
-    <div px-4 sm:px-9 pt-6 pb-24>
+    <div px-4 sm:px-9 pt-8 pb-24>
       <!-- insert splash image here -->
-      <p text-xl>Latest post:</p>
-      <hr mt-1>
-      <Blog002 />
+      <p text-2xl mb-8>
+        Blog Posts
+      </p>
+
+      <div flex flex-col>
+        <RouterLink underline text-xl pb-1 to="/blog/001">
+          Blog 001
+        </RouterLink>
+        <RouterLink underline text-xl pb-1 to="/blog/002">
+          Blog 002
+        </RouterLink>
+      </div>
     </div>
 
     <!-- right sidebar -->
-    <div bg-orange-200 m-4 rounded-lg lg:block hidden lg:w-72 xl:w-80 h-min>
+    <!-- <div bg-orange-200 m-4 rounded-lg lg:block hidden lg:w-72 xl:w-80 h-min>
       <p border-b-2 border-orange-600 pt-4 pb-1 w-full bg-orange-400 rounded-tl-lg rounded-tr-lg text-center>
         Contents:
       </p>
@@ -34,7 +46,7 @@ onMounted(() => {
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
   </main>
 </template>
 

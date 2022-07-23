@@ -1,8 +1,11 @@
 <script setup>
 import Links from '../../components/content/links.md'
 
+const { x, y } = useWindowScroll()
+
 onMounted(() => {
-  window.scrollTo(0, 0)
+  x.value = 0
+  y.value = 0
 })
 </script>
 

@@ -32,6 +32,7 @@ const props = defineProps({
         Blog
       </p>
     </router-link>
+
     <router-link to="/about" flex flex-col items-center>
       <p text-xl i-carbon-user />
       <p text-sm>
