@@ -9,7 +9,7 @@ onMounted(() => {
 
 <template>
   <main container mx-auto p-4 dark:text-cyan-300 min-h-screen>
-    <div px-12>
+    <div sm:px-12>
       <h1 text-center text-xl>
         bio
       </h1>
@@ -52,6 +52,10 @@ onMounted(() => {
 
       <br>
       <p>Find out more at my <a underline target="_blank" href="https://www.linkedin.com/in/danielahn47/">LinkedIn page</a>.</p>
+      <br>
+      <br>
+      <br>
+      <br>
     </div>
   </main>
 </template>

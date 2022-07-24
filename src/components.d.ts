@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     DesktopFooter: typeof import('./components/ui/DesktopFooter.vue')['default']
     Header: typeof import('./components/ui/Header.vue')['default']
     Lab002: typeof import('./components/content/lab002.md')['default']
+    Lab003: typeof import('./components/content/lab003.md')['default']
     Links: typeof import('./components/content/links.md')['default']
     MobileNavbar: typeof import('./components/ui/MobileNavbar.vue')['default']
     Modal: typeof import('./components/ui/Modal.vue')['default']
