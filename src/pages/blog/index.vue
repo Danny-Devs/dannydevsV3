@@ -25,6 +25,9 @@ onMounted(() => {
         <RouterLink underline text-xl pb-1 to="/blog/002">
           Blog 002
         </RouterLink>
+        <RouterLink underline text-xl pb-1 to="/blog/003">
+          Blog 003
+        </RouterLink>
       </div>
     </div>
 

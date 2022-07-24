@@ -39,6 +39,11 @@ onMounted(() => {
         Lab003
       </p>
     </router-link>
+    <router-link pb-1 to="/lab/lab004">
+      <p text-xl underline>
+        Lab004
+      </p>
+    </router-link>
   </main>
 </template>
 

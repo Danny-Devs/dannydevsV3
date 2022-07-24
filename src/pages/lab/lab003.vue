@@ -59,7 +59,8 @@ onMounted(() => {
       </p>
     </div>
     <!-- content -->
-    <hr mt-24 mb-4>
+    <hr mt-10>
+
     <Lab003 pb-24 />
 
     <!-- <a href="https://vuejs.org/guide/essentials/watchers.html" target="_blank">Vue documentation on Form Input Bindings</a> -->

@@ -9,7 +9,7 @@ onMounted(() => {
 
 <template>
   <main container mx-auto p-4 dark:text-cyan-300 min-h-screen>
-    <div sm:px-12>
+    <div sm:px-12 md:px-20 lg:px-48 xl:px-72>
       <h1 text-center text-xl>
         bio
       </h1>
