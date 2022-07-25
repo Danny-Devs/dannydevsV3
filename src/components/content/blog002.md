@@ -2,66 +2,67 @@
 
 ## From Options to Composition
 
-Vue 3 rightly has its detractors. There are those who say, why did Vue introduce the radically different Composition API? The reason is that the Composition API affords certain powerful patterns and paradigms that the Options API does not.
+Why did Vue introduce the radically different Composition API with Vue 3? The simple answer is that the Composition API affords powerful patterns and paradigms that the Options API does not.
 
-The Options API had its own benefits. It provided a built-in way for organizing code. However, mix-ins (the Options way of importing/exporting JS) had some key disadvantages when compared to doing things the "normal", more composable Javascript way (the way of Vue 3's Composition API, and also React, Svelte, Solid).
+The Options API does have its benefits. It provided a built-in way for organizing code that was particularly helpful for less experienced devs. However, the Options way of importing/exporting JS into Vue components via "mix-ins" had some critical disadvantages when compared to doing things the "normal" Javascript way (the way that Vue 3's Composition API uses...and also React, Svelte, Solid). For more on this, check out the Vue doc's [Composition API faq](https://vuejs.org/guide/extras/composition-api-faq.html).
 
-I guess in hindsight Vue had to evolve to compete. But the cool thing is that Vue 3 was able to integrate the Options API on top of the Composition API to allow for both options to co-exist. This is one example of Vue's commitment to DX.
+It is important to note that Vue 3 was able to integrate the Options API on top of the Composition API to allow for *both* options to co-exist. Vue even back-ported the Composition API to Vue 2! Vue's commitment to DX means that when breaking changes happen, Vue will take steps to make the transition as smooth and easy as possible.
 
 ## Composables and composition
 
-React's custom hooks allowed for full-powered composable JS programming. Vue 3's Composition API does the same.
+React's custom hooks are a powerful feature that allows *stateful*  composable JS web development. Vue 3's Composition API does the same, opening up endless possibilities for use cases.
 
-Example: [vueUse](https://vueuse.org/), a collection of Vue composition utilities, or utility composables. Spearheaded by the amazing Anthony Fu, vueUse consists of Javascript programs that abstract away lower level web APIs while also tapping into Vue's reactivity system to provide you with useful reactive data and functions. Now you can implement non-trivial features with just a few lines of code!
+Example:
+- [vueUse](https://vueuse.org/), a collection of Vue composition utilities, or utility composables. Created by the amazing Anthony Fu, vueUse consists of Javascript programs that abstract away lower-level web APIs while tapping into Vue's reactivity system to provide you with useful reactive data and functions. Now you can implement an array of non-trivial features with just a few lines of code!
 
 ## The syntax is better than ever
 
-The Composition API also settled on a syntax that looks very much like parts of both React and Svelte.
+The Composition API has settled on a modern syntax that looks very much like the best parts of both React and Svelte.
 
-Writing Javascript inside of a script tag in Vue 3 is very much like writing Javascript inside of a .js file in React.
+Writing JS inside of a script tag in Vue 3 is very much like writing JS inside of a regular .js file. Writing JS in Vue 2 was not as "normal".
 
-Vue 2's SFCs (single file components, .vue for Vue and .svelte for Svelte; they contain a script block, a template block, and a style block) looked similar to Svelte's except for that Vue's script block contained Options API-based JS. Now Vue 3's script block contains normal-looking Javascript.
+Vue's SFCs (single file components, or .vue files) contain a script block, a template block, and a style block, much like Svelte. I personally love the decision to include CSS style blocks in SFCs because I experienced how painful it was to do CSS in React. The sheer number of choices available meant having to spend precious time researching them in order to pick winner. With Vue, you can just use CSS the built-in way, or you can install and use a CSS framework such as Tailwind, Bootstrap, Unocss, etc.
 
-After a speedbump or two (the latest script syntax, using 'script setup', was released some time after Vue 3's initial launch), Vue 3's latest syntax is arguably best-in-class, containing both the sound mental model of SFCs as well as the flexibility and power of a blank Javascript slate to build on.
+## A few speedbumps along the way
+
+Vue 3's latest syntax is arguably best-in-class, relying on both the intuitive mental model of SFCs as well as the flexibility and power of a blank Javascript slate to code on. However, this syntax did go through some changes before becoming the current "script setup" syntax. It's a bit of a pain point, since the documentation may take a while to update, and there is now more than one way of doing things, but the only way to never make changes is to be perfect in the first place, which is impossible! I don't mind pain points that are a fact of life; it's the pain points that arise due to a misalignment of values between software creators and web developers that bother me...
 
 ## Elegant first-party tooling
 
-One of the severe drawbacks of the vision of React as a library was the overabundance of choices available for core services like routing or state management. Researching the top two or three choices alone required spending time in each one's documentation.
+One of the severe pain points of the decision to designate React as a library instead of a framework was the resulting overabundance of choices for core services like routing or state management. Researching the options in order to make a wise choice can eat up lots of time.
 
-One of the huge wins of the vision of Vue as a framework is that routing and state management are high quality first-party tools.
+Vue's decision to embrace the label of "framework" means that it saves you tons of time. Routing and state management are high quality first-party tools that you can install with ease.
 
-Pinia, Vue 3's state management package, is a breeze to setup, hook into and work with. I left React before learning Redux, but I did go through a Redux setup tutorial, and it was 1000x more painful than setting up Pinia. I can only imagine what it would be like to work with Redux's Byzantinian architecture. This is part of why I am not only happeir but also more productive when I develop in Vue.
+Pinia, Vue 3's state management package, is incredibly easy to work with. I left React just before I was about to learn Redux, but I was able to go through a Redux setup tutorial. It was 1000x more painful than setting up Pinia. I can only imagine what it would be like working with Redux's (and React's) Byzantinian architecture.
 
 ## Modular/extensible architecture
 
-The way Vue is architected seems to me to follow best practices. The modular-friendly design allows rich creativity in designated places, such as plugins and other add-ons. As I become more experienced, I appreciate this more and more.
+The way Vue is architected seems to me to follow best practices. The modular-friendly design allows rich creativity in designated places, such as plugins and other add-ons. As I become more and more of a Vue power user, I appreciate this more and more.
 
 ## Super-powered starter templates
 
-At first I was intimidated by all the bells and whistles on Anthony Fu's [Vitesse](https://github.com/antfu/vitesse) Vue starter template when I first used it for a new project. So I created my own template, [Vuesque](https://github.com/Danny-Devs/vuesque), and added tools like Tailwind and DaisyUI to it. Then I realized that Vitesse had some features that I wanted, so I began to install them one by one into my Vuesque template. Eventually, I ran into a problem trying to install file-based routing on one project, so I decided to give [Vitesse-lite](https://github.com/antfu/vitesse-lite) a try.
+At first I was intimidated by all the bells and whistles on Anthony Fu's [Vitesse](https://github.com/antfu/vitesse) starter template when I first used it for a new project. So I created my own template, [Vuesque](https://github.com/Danny-Devs/vuesque), adding tools like Tailwind and DaisyUI to it. After using Vuesque for a while, I noticed that I could really use some more features and functionality. I saw that Vitesse had them, so I began to add them one by one into Vuesque. Eventually, I ran into issues trying to install file-based routing on a Vuesque-based project, so I decided to go back and give Vitesse another try. This time I tried [Vitesse-lite](https://github.com/antfu/vitesse-lite), a lighter version of Vitesse.
 
-I really enjoyed that, but then saw that Vitesse had a feature I wanted (markdown, which I'm using right now as I type this). And now I'm right back where I started, using Vitesse, only now I understand most of it and appreciate its many superpowers.
+I really enjoyed Vitesse-lite, but then noticed that Vitesse had a feature I wanted (Markdown, which I'm using right now as I type this!). And now I'm right back to where I started, using Vitesse--only now I know how most of it works and understand how to use its many superpowers.
 
 ## It's fast and light
 
-Currently, according to my own estimation based on various articles and tweets and tests that I've read and reviewed, Vue is pretty fast, and it's pretty light.
+Currently, according to my own estimation based on various articles, tweets, and tests that I've read, Vue is pretty fast and pretty light.
 
-Svelte compiles away everything so it's the lightest. React is on the heavy end. Vue 3 has gotten considerably lighter from Vue 2.
+Size-wise, Svelte compiles away everything so it's the lightest in size. React is on the heavier end of things. Vue 3 has also gotten considerably smaller from Vue 2.
 
-Solid is the fastest. Svelte and Vue are actually pretty close in speed. Vue 3 is significantly faster than Vue 2. React is slower than Vue.
+Speed-wise, Solid is the fastest. Svelte and Vue are actually pretty close in speed. React is generally slower than Vue. Vue 3 is also significantly faster than Vue 2.
 
 ## It's already the #2 JS framework
 
-The job market for Vue developers is great. React has the biggest job market, while Svelte has a tiny one at the moment.
+The job market for Vue developers is great. React has the biggest share of the job market, followed by Vue, with Svelte still tiny in comparison.
 
 ## Summary
 
-It is for these reasons that I think Vue is entering its Golden Age. Evan You, creator of Vue, recently said that there won't be any major updates for a while. This means that they can focus on making Vue 3 smaller and faster and more powerful.
+It is for these reasons that I think Vue has already begun its Golden Age. Evan You, creator of Vue, recently said that there won't be any major updates for a while. This means that the Vue team can focus on optimizing Vue 3, making it smaller, faster, more stable, and more powerful.
 
-Granted, Evan also said that they are currently experimenting with a non v-dom-based, compiled strategy codenamed Vue Vapor. However, releasing Vue 3 took several years, so my hunch is that Evan will be content to hold Vue 3 steady while making sure that Vapor breaks as few things as possible while bringing in as many cool things as possible.
+Granted, Evan has said that Vue is experimenting with a non-v-dom, compiled strategy, codenamed Vue Vapor. However, releasing Vue 3 took several years, so my hunch is that Evan will be content take his time with Vapor and make sure they get it right.
 
-This means that when Nuxt 3 and Vuetify 3 are *finally* released, the major parts of the Vue 3 ecosystem will be put in place. Though frankly, Vitesse seems to be an unofficial Nuxt 3 already, and Vuetify being a UI/component library is just one of many choices.
+This means that when Nuxt 3 and Vuetify 3 are *finally* released, the major parts of the Vue 3 ecosystem will be in place. Frankly though, Vitesse seems to be a sort of unofficial Nuxt 3 in that Vitesse appears to have near feature-parity with Nuxt! And now that I know the how a Vue/Vite project is structure and configured, I'm not that eager to deal with Nuxt 3's structure/configuration, because the Nuxt team has abstracted away a lot of things and installed their own custom "plumbing".
 
-Keep in mind that Vue 2 is scheduled for deprecation in Fall 2023, which means the entire Vue community will soon be on the same version and probably using the Composition API.
-
-Happier, more productive, and more powerful developers should translate to better ROI for companies. Word will get around more and more and the ecosystem will expand and mature. I would say, give it 6 months to a year, and we'll see people recognizing how amazing Vue 3 has become.
+To sum it up, I'm a happier, more productive, and more powerful developer with Vue. Word will get around and the ecosystem and community will expand and mature. I give it six months to a year before we'll see more and more people recognizing how amazing Vue 3 has become.
