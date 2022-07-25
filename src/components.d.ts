@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     Blog001: typeof import('./components/content/blog001.md')['default']
     Blog002: typeof import('./components/content/blog002.md')['default']
     Blog003: typeof import('./components/content/blog003.md')['default']
+    BlogWrapper: typeof import('./components/ui/BlogWrapper.vue')['default']
     DesktopFooter: typeof import('./components/ui/DesktopFooter.vue')['default']
     Header: typeof import('./components/ui/Header.vue')['default']
     Lab002: typeof import('./components/content/lab002.md')['default']

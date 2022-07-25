@@ -1,4 +1,4 @@
-# Why Vue 3 is Poised and Ready for its coming Golden Age
+# Why Vue 3 is Poised for a Golden Age
 
 ## From Options to Composition
 

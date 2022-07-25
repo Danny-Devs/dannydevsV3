@@ -26,6 +26,7 @@ body,
 
 html.dark {
   /* background: rgb(15 23 42); */
+  color-scheme: dark;
 }
 
 #nprogress {

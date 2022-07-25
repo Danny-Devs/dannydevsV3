@@ -1,5 +1,7 @@
 # Web dev links:
 
+Find everything from handy utilities to supercharged tools for web design and development.
+
 ## Templates
 
 [Vitesse](https://github.com/antfu/vitesse) is a Vue project starter template jam-packed with the latest and greatest:

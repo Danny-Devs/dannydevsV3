@@ -159,10 +159,15 @@ onClickOutside(modalCard, () => {
           </router-link>.
         </p>
 
-        <p>
+        <p mb-4>
           Learn more about <router-link font-bold underline to="/about">
             <a>me</a>
           </router-link>. I'm available for employment opportunities!
+        </p>
+        <p>
+          I also maintain a repository of useful web dev <router-link font-bold underline to="/links">
+            <a>links</a>
+          </router-link>.
         </p>
       </div>
     </div>

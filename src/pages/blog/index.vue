@@ -12,21 +12,20 @@ onMounted(() => {
 <template>
   <main flex justify-center text-center dark:text-cyan-300 min-h-screen container mx-auto>
     <!-- spacing goes below -->
-    <div px-4 sm:px-9 pt-8 pb-24>
-      <!-- insert splash image here -->
-      <p text-2xl mb-8>
-        Blog Posts
+    <div px-4 sm:px-9 pt-6 sm:pt-8 pb-24>
+      <p text-xl sm:mb-6 mb-4>
+        Posts
       </p>
 
-      <div flex flex-col>
-        <RouterLink underline text-xl pb-1 to="/blog/001">
-          Blog 001
+      <div flex flex-col items-start text-left>
+        <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/001">
+          001: How I made this blog post
         </RouterLink>
-        <RouterLink underline text-xl pb-1 to="/blog/002">
-          Blog 002
+        <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/002">
+          002: Why Vue 3 is Poised for a Golden Age
         </RouterLink>
-        <RouterLink underline text-xl pb-1 to="/blog/003">
-          Blog 003
+        <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/003">
+          003
         </RouterLink>
       </div>
     </div>

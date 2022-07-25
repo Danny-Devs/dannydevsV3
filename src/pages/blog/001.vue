@@ -12,10 +12,10 @@ onMounted(() => {
 <template>
   <main flex justify-center dark:text-cyan-300 min-h-screen container mx-auto>
     <!-- spacing goes below -->
-    <div px-4 sm:px-9 pt-6 pb-24>
+    <BlogWrapper>
       <!-- insert splash image here -->
       <Blog001 />
-    </div>
+    </BlogWrapper>
   </main>
 </template>
 
