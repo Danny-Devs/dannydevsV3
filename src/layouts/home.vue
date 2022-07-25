@@ -12,5 +12,8 @@
 
     <!-- desktop footer -->
     <DesktopFooter hidden sm:block />
+
+    <!-- having issues with the footer behavior!!! -->
+    <!-- <DesktopFooter class="left-1/2 transform -translate-x-1/2" hidden sm:block absolute bottom-0 w-full /> -->
   </main>
 </template>

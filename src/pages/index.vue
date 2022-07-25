@@ -137,12 +137,12 @@ onClickOutside(modalCard, () => {
     <br>
 
     <!-- main content -->
-    <div text-lg px-4 pb-12>
+    <div text-lg px-4>
       <p dark:font-normal font-bold text-xl mb-6 text-center dark:text-cyan-300>
         My name is Danny, aka DannyDevs.
       </p>
 
-      <div text-base class="sm:w-4/5 xl:w-2/3 mx-auto" dark:text-cyan-300 dark:bg-gray-900 bg-white px-6 py-6 rounded-lg shadow-lg>
+      <div text-base class="sm:w-4/5 xl:w-2/3 mx-auto" dark:text-cyan-300 dark:bg-gray-900 mb-11 bg-white px-6 py-6 rounded-lg shadow-lg>
         <p mb-4>
           I'm a front end web developer, designer, and content creator who primarily works in Vue JS. I also admire Svelte.
         </p>

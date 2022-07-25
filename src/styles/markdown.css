@@ -50,7 +50,8 @@ html.dark .prose a {
 }
 
 .shiki-light {
-  background: #f8f8f8 !important;
+  background: #f4fdff !important;
+  border: 1px solid #fecaca;
 }
 .shiki-dark {
   background: #0e0e0e !important;
@@ -62,4 +63,42 @@ html.dark .shiki-light {
 
 html:not(.dark) .shiki-dark {
   display: none;
+}
+
+/* for inline code */
+/* .prose code {
+  background: pink;
+  border-radius: 5px;
+  color: #f8f8f8;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+} */
+
+.prose p code {
+  background: #e7e5e4;
+  font-family: monospace;
+  font-size: 1.2em;
+  font-weight: normal;
+  padding: 0.2em 0.4em;
+  margin-right: 0.1em;
+  margin-left: 0.1em;
+}
+html.dark .prose p code {
+  background-color: #123e4f;
+  font-family: monospace;
+  font-size: 1.2em;
+  font-weight: normal;
+  padding: 0.2em 0.4em;
+  margin-right: 0.1em;
+  margin-left: 0.1em;
+}
+
+
+
+.prose p code::before {
+  content: "";
+}
+.prose p code::after {
+  content: "";
 }

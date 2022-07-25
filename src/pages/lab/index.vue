@@ -24,7 +24,7 @@ onMounted(() => {
     <div class="sm:w-3/5 px-4" text-left mx-auto flex flex-col gap-2 items-start>
       <router-link to="/lab/lab001">
         <p dark:text-cyan-400 text-cyan-600 text-xl hover:underline>
-          Lab001: Animation and Vue
+          Lab001: Animation in Vue
         </p>
       </router-link>
       <router-link to="/lab/lab002">
@@ -34,14 +34,14 @@ onMounted(() => {
       </router-link>
       <router-link to="/lab/lab003">
         <p dark:text-cyan-400 text-cyan-600 text-xl hover:underline>
-          Lab003: Having fun with a Random Yes/No free API
+          Lab003: Having Fun with a Free Yes or No API
         </p>
       </router-link>
-    <!-- <router-link pb-1 to="/lab/lab004">
-      <p text-cyan-600 text-xl hover:underline>
-        Lab004
-      </p>
-    </router-link> -->
+      <router-link pb-1 to="/lab/lab004">
+        <p text-cyan-600 text-xl hover:underline>
+          Lab004: Unwrapping the Scrolling Web APIs
+        </p>
+      </router-link>
     </div>
   </main>
 </template>

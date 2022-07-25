@@ -72,7 +72,6 @@ export default defineConfig({
       wrapperClasses: 'prose prose-sm m-auto text-left',
       headEnabled: true,
       markdownItSetup(md) {
-        // https://prismjs.com/
         md.use(Shiki, {
           theme: {
             light: 'vitesse-light',
