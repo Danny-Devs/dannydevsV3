@@ -25,7 +25,7 @@ onMounted(() => {
           002: Why Vue 3 is Poised for a Golden Age
         </RouterLink>
         <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/003">
-          003
+          003: Branding DannyDevs: Art Asset Production and Management
         </RouterLink>
       </div>
     </div>

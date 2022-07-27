@@ -66,12 +66,12 @@ onClickOutside(modalCard, () => {
       <Transition name="fade">
         <div v-if="showDizzy" absolute top-0 class="-bottom-96" right-0 left-0>
           <!-- modal background -->
-          <div bg-gray-800 opacity-60 w-full h-full />
+          <div bg-gray-800 dark:opacity-93 opacity-60 w-full h-full />
           <!-- modal card -->
 
-          <div ref="modalCard" bg-red-300 absolute class="p-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-96">
+          <div ref="modalCard" bg-red-300 dark:bg-slate-600 absolute class="p-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-96">
             <div hover:cursor-pointer i-carbon-close text-2xl mb-1 @click="showDizzy = false" />
-            <div bg-red-50>
+            <div bg-red-50 dark:bg-slate-700>
               <div py-6 px-10>
                 <slot name="body" />
                 <p v-if="!nextDialog" text-lg>
@@ -86,10 +86,12 @@ onClickOutside(modalCard, () => {
               <button
                 v-if="!nextDialog"
                 bg-red-500
+                dark:bg-cyan-600
                 mt-2
                 px-5
                 py-2
                 rounded-lg
+                class="dark:hover:bg-cyan-500"
                 hover:bg-red-400
                 shadow-md
                 active:shadow-none
@@ -101,6 +103,8 @@ onClickOutside(modalCard, () => {
               <button
                 v-if="nextDialog"
                 bg-red-500
+                class="dark:hover:bg-cyan-500"
+                dark:bg-cyan-600
                 hover:bg-red-400
                 active:bg-red-500
                 shadow-md
@@ -121,7 +125,7 @@ onClickOutside(modalCard, () => {
         </div>
       </Transition>
 
-      <div ml-4>
+      <div ml-4 dark:text-black>
         <p sm:text-xl text-2xl text-center font-bold>
           Hi there!
         </p>

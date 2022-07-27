@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <main flex py-4 px-6 justify-between :class="color" dark:bg-cyan-500 bg-cyan-400>
+  <main flex py-4 px-6 justify-between :class="color" dark:bg-cyan-500 bg-cyan-400 dark:text-slate-900>
     <router-link
       to="/"
       flex

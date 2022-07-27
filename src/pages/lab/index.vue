@@ -8,19 +8,22 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="text-center text-gray-700 dark:text-cyan-300 min-h-screen">
-    <h2 text-xl mt-6 mb-3>
-      Web projects:
-    </h2>
+  <main class="text-center text-gray-700 dark:text-cyan-400 min-h-screen">
+    <div flex justify-center>
+      <h2 text-xl sm:text-lg mt-6 mb-3 border-b-2 sm:border-b-1 w-fit>
+        Web projects:
+      </h2>
+    </div>
     <a href="https://merry-alpaca-3a7e8d.netlify.app/" target="_blank">
-      <p dark:text-cyan-400 text-cyan-600 text-xl pb-1 hover:underline>
+      <p dark:text-cyan-400 text-cyan-600 text-2xl sm:text-xl pb-1 hover:underline>
         Actionator
       </p>
     </a>
-
-    <h2 text-xl mt-6 mb-3>
-      Experiments:
-    </h2>
+    <div flex justify-center>
+      <h2 text-xl sm:text-lg mt-6 mb-4 border-b-2 sm:border-b-1 w-fit>
+        Experiments:
+      </h2>
+    </div>
     <div class="sm:w-3/5 px-4" text-left mx-auto flex flex-col gap-2 items-start>
       <router-link to="/lab/lab001">
         <p dark:text-cyan-400 text-cyan-600 text-xl hover:underline>
@@ -38,7 +41,7 @@ onMounted(() => {
         </p>
       </router-link>
       <router-link pb-1 to="/lab/lab004">
-        <p text-cyan-600 text-xl hover:underline>
+        <p dark:text-cyan-400 text-cyan-600 text-xl hover:underline>
           Lab004: Unwrapping the Scrolling Web APIs
         </p>
       </router-link>
