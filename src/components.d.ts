@@ -17,6 +17,8 @@ declare module '@vue/runtime-core' {
     Lab003: typeof import('./components/content/lab003.md')['default']
     Lab004: typeof import('./components/content/lab004.md')['default']
     Lab004b: typeof import('./components/content/lab004b.md')['default']
+    Lab005: typeof import('./components/content/lab005.md')['default']
+    Lab005b: typeof import('./components/content/lab005b.md')['default']
     Links: typeof import('./components/content/links.md')['default']
     MobileNavbar: typeof import('./components/ui/MobileNavbar.vue')['default']
     Modal: typeof import('./components/ui/Modal.vue')['default']
@@ -25,5 +27,6 @@ declare module '@vue/runtime-core' {
     README: typeof import('./components/README.md')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Template: typeof import('./components/content/template.md')['default']
   }
 }

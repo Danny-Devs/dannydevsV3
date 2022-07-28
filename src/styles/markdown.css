@@ -12,6 +12,17 @@
   width: 100%;
 }
 
+.prose table {
+  background-color: #fef2f2;
+  border-radius: 6px;
+
+}
+
+.prose tbody tr:nth-child(odd){
+  background-color: #fee2e2;
+
+}
+
 .prose blockquote {
   border-left: 6px solid #22d3ee;
 }
@@ -50,7 +61,7 @@ html.dark .prose a {
 }
 
 .shiki-light {
-  background: #f4fdff !important;
+  background: #FFFCFB !important;
   border: 1px solid #fecaca;
 }
 .shiki-dark {

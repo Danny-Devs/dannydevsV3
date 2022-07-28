@@ -25,6 +25,10 @@ By default, Unocss allows you to use Tailwind, Windi CSS, Bootstrap, and/or Tach
 
 [PWAbuilder Image Generator](https://www.pwabuilder.com/imageGenerator) creates app icon sets for mobile and Windows. Provide a 512x512 or larger square PNG and the Image Generator will spit out a zip file with complete icon sets of varying resolution for each chosen platform.
 
+## Libraries
+
+[Matter.js](https://brm.io/matter-js/docs/) is a popular, active, and mature 2D physics library. I did a lab on it that will provide a decent introduction [here](https://dannydevs.com/lab/lab005). 2D physics is sort of like a web superpower. It's rare, cool, and effective when used well.
+
 ## Backend
 
 [json-server](https://www.npmjs.com/package/json-server) is a fake REST API server for testing and prototyping. Spin up the server in VSCode and voila! you can interact with it as though it were a public API--but the 'database' is simply a db.json file in your front end project's root directory!

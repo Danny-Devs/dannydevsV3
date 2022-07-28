@@ -45,6 +45,11 @@ onMounted(() => {
           Lab004: Unwrapping the Scrolling Web APIs
         </p>
       </router-link>
+      <router-link pb-1 to="/lab/lab005">
+        <p dark:text-cyan-400 text-cyan-600 text-xl hover:underline>
+          Lab005: A Very Important Matter(.js)
+        </p>
+      </router-link>
     </div>
   </main>
 </template>

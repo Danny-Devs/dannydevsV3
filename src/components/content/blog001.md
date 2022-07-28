@@ -1,8 +1,11 @@
 ---
-title: Blog 001
+number: 001
+title: How I made this blog post
+description: An educational essay on Markdown by way of Vitesse
+
 ---
 
-# Blog 001: How I made this blog post
+# Blog {{ number }}: {{ title }}
 
 This post was written in [Markdown](https://www.markdownguide.org/), a simple markup language that makes writing content faster and easier than with regular old HTML. For example:
 
