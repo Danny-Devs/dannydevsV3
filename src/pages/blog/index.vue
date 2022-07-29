@@ -18,14 +18,15 @@ onMounted(() => {
       </p>
 
       <div flex flex-col items-start text-left>
-        <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/001">
-          001: How I made this blog post
+        <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/003">
+          003: Branding DannyDevs: Art Asset Production and Management
         </RouterLink>
+
         <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/002">
           002: Why Vue 3 is Poised for a Golden Age
         </RouterLink>
-        <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/003">
-          003: Branding DannyDevs: Art Asset Production and Management
+        <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/001">
+          001: How I made this blog post
         </RouterLink>
       </div>
     </div>

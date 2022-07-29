@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div container mx-auto bg-cyan-400 dark:bg-cyan-500>
+  <div container mx-auto bg-cyan-400 dark:bg-cyan-00>
     <div flex px-8 py-4 text-xl justify-between items-center>
       <div flex gap-3>
         <a dark:text-slate-900 hover:text-gray-700 target="_blank" href="https://www.linkedin.com/in/danielahn47/" i-carbon-logo-linkedin />

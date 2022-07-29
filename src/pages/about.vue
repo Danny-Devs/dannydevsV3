@@ -40,14 +40,12 @@ onMounted(() => {
       </h1>
       <hr mb-4>
       <p>
-        Vue
+        Vue - comfortable with Vue 2 with a focus on Vue 3.
       </p>
       <p>Git/Github</p>
-      <p>VS Code</p>
       <p>HTML, CSS, Javascript</p>
-      <p>Photoshop, Illustrator</p>
-      <p>Image Editing</p>
-      <p>Illustration</p>
+      <p>Adobe Photoshop, Illustrator - image editing, production</p>
+      <p>Figma - design, prototyping, whiteboarding</p>
       <p>Svelte</p>
 
       <br>

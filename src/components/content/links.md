@@ -27,7 +27,7 @@ By default, Unocss allows you to use Tailwind, Windi CSS, Bootstrap, and/or Tach
 
 ## Libraries
 
-[Matter.js](https://brm.io/matter-js/docs/) is a popular, active, and mature 2D physics library. I did a lab on it that will provide a decent introduction [here](https://dannydevs.com/lab/lab005). 2D physics is sort of like a web superpower. It's rare, cool, and effective when used well.
+[Matter.js](https://brm.io/matter-js/docs/) is a popular, active, and mature 2D physics library. I did a [lab](https://dannydevs.com/lab/lab005) on it that will provide a decent introduction. 2D physics is sort of like a web superpower. It's rare, cool, and effective when used well.
 
 ## Backend
 
