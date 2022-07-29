@@ -1,7 +1,6 @@
 <script setup>
 // import associated .md files
-import { rand } from '@vueuse/core'
-import { Bodies, Body, Common, Composite, Engine, Events, Render, Runner } from 'matter-js'
+import { Bodies, Body, Composite, Engine, Events, Render, Runner } from 'matter-js'
 import Lab005 from '../../components/content/lab005.md'
 import Lab005b from '../../components/content/lab005b.md'
 
