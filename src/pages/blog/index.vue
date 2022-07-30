@@ -1,6 +1,4 @@
 <script setup>
-import Blog001 from '../../components/content/blog001.md'
-
 const { x, y } = useWindowScroll()
 
 onMounted(() => {
@@ -18,6 +16,9 @@ onMounted(() => {
       </p>
 
       <div flex flex-col items-start text-left>
+        <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/004">
+          004: Managing Different Screen Sizes with Responsive Design
+        </RouterLink>
         <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/003">
           003: Branding DannyDevs: Art Asset Production and Management
         </RouterLink>
