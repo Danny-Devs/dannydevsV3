@@ -196,7 +196,7 @@ onMounted(() => {
     </div>
     <!-- lab demo -->
 
-    <Lab005 />
+    <Lab005 container />
 
     <!-- lab demo -->
     <div md:mx-4 lg:mx-8 xl:mx-16 class="2xl:mx-28" mt-10>

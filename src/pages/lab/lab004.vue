@@ -70,7 +70,7 @@ const handleWheel = (evt) => {
     </div>
     <!-- end copy -->
 
-    <lab004 />
+    <Lab004 container />
 
     <div
       bg-slate-300
@@ -124,9 +124,11 @@ const handleWheel = (evt) => {
       </div>
     </div>
 
-    <Lab004b />
+    <Lab004b container />
 
-    <div my-12 />
+    <!-- spacer for mobile footer -->
+    <div py-12 />
+    <!-- spacer for mobile footer -->
   </main>
 </template>
 

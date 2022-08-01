@@ -8,7 +8,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class=" bg-red-50  dark:bg-slate-900 min-h-screen">
+  <main class=" bg-red-100  dark:bg-slate-900 min-h-screen">
     <!-- mobile header -->
     <Header />
 

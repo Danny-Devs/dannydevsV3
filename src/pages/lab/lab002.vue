@@ -52,7 +52,10 @@ const closeModal = () => {
       />
     </Transition>
 
-    <Lab002 />
+    <Lab002 container/>
+    <!-- spacer for mobile footer -->
+    <div py-12 />
+    <!-- spacer for mobile footer -->
   </main>
 </template>
 

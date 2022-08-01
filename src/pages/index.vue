@@ -42,7 +42,7 @@ onClickOutside(modalCard, () => {
 </script>
 
 <template>
-  <main bg-red-50 dark:bg-slate-900 container mx-auto h-full>
+  <main bg-red-100 dark:bg-slate-900 container mx-auto h-full>
     <!-- spacer -->
     <div py-5 />
 
@@ -148,7 +148,7 @@ onClickOutside(modalCard, () => {
         My name is Danny, aka DannyDevs.
       </p>
 
-      <div text-base class="sm:w-4/5 xl:w-2/3 mx-auto" dark:text-cyan-300 dark:bg-gray-900 mb-11 bg-gray-200 px-6 py-6 rounded-lg>
+      <div text-base class="sm:w-4/5 xl:w-2/3 mx-auto" dark:text-cyan-300 dark:bg-gray-900 mb-11 bg-red-50 px-6 py-6 rounded-lg>
         <p mb-4>
           I'm a front end web developer, designer, and content creator who primarily works in Vue JS. I also admire Svelte.
         </p>

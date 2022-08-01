@@ -61,7 +61,11 @@ onMounted(() => {
     <!-- content -->
     <hr mt-10>
 
-    <Lab003 pb-24 />
+    <Lab003 container />
+
+    <!-- spacer for mobile footer -->
+    <div py-12 />
+    <!-- spacer for mobile footer -->
 
     <!-- <a href="https://vuejs.org/guide/essentials/watchers.html" target="_blank">Vue documentation on Form Input Bindings</a> -->
   </main>

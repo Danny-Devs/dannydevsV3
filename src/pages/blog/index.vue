@@ -16,6 +16,9 @@ onMounted(() => {
       </p>
 
       <div flex flex-col items-start text-left>
+        <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/005">
+          005: Become a Web Jedi with Vue 3
+        </RouterLink>
         <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/004">
           004: Managing Different Screen Sizes with Responsive Design
         </RouterLink>

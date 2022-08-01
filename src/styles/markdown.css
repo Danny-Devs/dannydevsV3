@@ -59,10 +59,13 @@ html.dark .prose a {
   color: #0891b2;
   text-decoration: underline;
 }
-
-.shiki-light {
+/* old setting */
+/* .shiki-light {
   background: #FFFCFB !important;
   border: 1px solid #fecaca;
+} */
+.shiki-light {
+  background: #292d3e !important;
 }
 .shiki-dark {
   background: #0e0e0e !important;
@@ -87,7 +90,7 @@ html:not(.dark) .shiki-dark {
 } */
 
 .prose p code {
-  background: #e7e5e4;
+  background: #fed9d9;
   font-family: monospace;
   font-size: 1.2em;
   font-weight: normal;

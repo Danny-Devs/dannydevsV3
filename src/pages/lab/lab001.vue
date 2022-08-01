@@ -126,12 +126,15 @@ const toggleExp = () => {
         <p mt-4 lg:mt-8 xl:mt-12>
           You can create your own custom animations using using <a font-semibold href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions" target="_blank">CSS transitions</a> as well as <a font-semibold href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations" target="_blank">CSS keyframe animations</a>.
         </p>
-        <p mt-4 pb-32>
+        <p mt-4>
           I'll be doing some experimentation with GSAP (Greensock animation) next, which allows for more animation control, power, and DX (developer experience)! Until next time, DannyDevs out!
         </p>
       </div>
     </div>
     <!-- end section experiments -->
+    <!-- spacer for mobile footer -->
+    <div py-12 />
+    <!-- spacer for mobile footer -->
   </div>
 </template>
 

@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     Blog002: typeof import('./components/content/blog002.md')['default']
     Blog003: typeof import('./components/content/blog003.md')['default']
     Blog004: typeof import('./components/content/blog004.md')['default']
+    Blog005: typeof import('./components/content/blog005.md')['default']
     BlogWrapper: typeof import('./components/ui/BlogWrapper.vue')['default']
     DesktopFooter: typeof import('./components/ui/DesktopFooter.vue')['default']
     Header: typeof import('./components/ui/Header.vue')['default']
@@ -21,6 +22,7 @@ declare module '@vue/runtime-core' {
     Lab005: typeof import('./components/content/lab005.md')['default']
     Lab005b: typeof import('./components/content/lab005b.md')['default']
     Lab006: typeof import('./components/content/lab006.md')['default']
+    Lab007: typeof import('./components/content/lab007.md')['default']
     Links: typeof import('./components/content/links.md')['default']
     MobileNavbar: typeof import('./components/ui/MobileNavbar.vue')['default']
     Modal: typeof import('./components/ui/Modal.vue')['default']
@@ -30,5 +32,6 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Template: typeof import('./components/content/template.md')['default']
+    TheTemplate: typeof import('./components/templates/theTemplate.vue')['default']
   }
 }

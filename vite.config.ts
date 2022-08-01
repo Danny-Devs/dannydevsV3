@@ -64,7 +64,17 @@ export default defineConfig({
 
     // https://github.com/antfu/unocss
     // see unocss.config.ts for config
-    Unocss(),
+    Unocss(
+      {
+        shortcuts: {
+          // shortcuts to multiple utilities
+          // 'myBtn': 'py-2 px-4 font-semibold rounded-lg shadow-md',
+          // 'btn-green': 'text-white bg-green-500 hover:bg-green-700',
+          // single utility alias
+          // 'red': 'text-red-100',
+        },
+      },
+    ),
 
     // https://github.com/antfu/vite-plugin-vue-markdown
     // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
@@ -74,8 +84,8 @@ export default defineConfig({
       markdownItSetup(md) {
         md.use(Shiki, {
           theme: {
-            light: 'vitesse-dark',
-            dark: 'vitesse-dark',
+            light: 'material-default',
+            dark: 'material-default',
           },
         })
         md.use(LinkAttributes, {
