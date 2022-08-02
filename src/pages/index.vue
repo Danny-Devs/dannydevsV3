@@ -1,5 +1,12 @@
 <script setup>
+import { useSound } from '@vueuse/sound'
 import { useMyStore } from '~/store/myStore'
+import shakeSfx from '/pill-shake.mp3'
+
+const { play } = useSound(shakeSfx, {
+  interrupt: true,
+  intensity: 0.5,
+})
 
 const isAnimating = ref(true)
 const numMouseovers = ref(0)
@@ -12,12 +19,9 @@ const myStore = useMyStore()
 
 // set default scroll position
 const { x, y } = useWindowScroll()
-onMounted(() => {
-  x.value = 0
-  y.value = 0
-})
 
 const triggerAnimation = () => {
+  play()
   isAnimating.value = !isAnimating.value
   setTimeout(() => {
     isAnimating.value = !isAnimating.value
@@ -29,6 +33,12 @@ const triggerAnimation = () => {
   }
 }
 
+onMounted(() => {
+  x.value = 0
+  y.value = 0
+  triggerAnimation()
+})
+
 const closeModal = () => {
   showDizzy.value = false
   myStore.hasPlayed = true
@@ -37,8 +47,6 @@ const closeModal = () => {
 onClickOutside(modalCard, () => {
   showDizzy.value = false
 })
-
-
 </script>
 
 <template>
@@ -49,19 +57,17 @@ onClickOutside(modalCard, () => {
     <!-- hero -->
     <div class="sm:(w-2/3 mx-auto) lg:w-1/2 xl:w-1/3" py-4 pl-12 dark:bg-slate-500 bg-red-500 flex items-center justify-center shadow-lg>
       <div>
-        <router-link to="/about">
-          <img
-            hover:cursor-pointer
-            hover:scale-101
-            transition
-            :class="isAnimating ? 'animated-rotation' : ''"
-            alt="DannyDevs avatar"
-            src="/dannydevs-avatar.png"
-            w-36
-            sm:w-24
-            @mouseover="triggerAnimation"
-          >
-        </router-link>
+        <img
+          hover:cursor-pointer
+          hover:scale-101
+          transition
+          :class="isAnimating ? 'animated-rotation' : ''"
+          alt="DannyDevs avatar"
+          src="/dannydevs-avatar.png"
+          w-36
+          sm:w-24
+          @click="triggerAnimation"
+        >
       </div>
 
       <!-- modal -->

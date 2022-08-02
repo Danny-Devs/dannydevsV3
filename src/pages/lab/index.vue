@@ -27,6 +27,11 @@ onMounted(() => {
       </h2>
     </div>
     <div class="sm:w-3/5 px-4" text-left mx-auto flex flex-col gap-2 items-start>
+      <router-link to="/lab/lab008">
+        <p dark:text-cyan-400 text-cyan-600 text-xl hover:underline>
+          Lab008: Enter the Canvas
+        </p>
+      </router-link>
       <router-link to="/lab/lab007">
         <p dark:text-cyan-400 text-cyan-600 text-xl hover:underline>
           👁 Lab007: vueUse's useEyeDropper and the EyeDropper web API

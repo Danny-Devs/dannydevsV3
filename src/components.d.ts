@@ -23,6 +23,7 @@ declare module '@vue/runtime-core' {
     Lab005b: typeof import('./components/content/lab005b.md')['default']
     Lab006: typeof import('./components/content/lab006.md')['default']
     Lab007: typeof import('./components/content/lab007.md')['default']
+    Lab008: typeof import('./components/content/lab008.md')['default']
     Links: typeof import('./components/content/links.md')['default']
     MobileNavbar: typeof import('./components/ui/MobileNavbar.vue')['default']
     Modal: typeof import('./components/ui/Modal.vue')['default']
