@@ -3,7 +3,10 @@
 import Lab006 from '../../components/content/lab006.md'
 
 const { x, y } = useWindowScroll()
-
+onMounted(() => {
+  x.value = 0
+  y.value = 0
+})
 const { counter, pause, resume } = useInterval(200, { controls: true })
 </script>
 

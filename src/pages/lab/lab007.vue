@@ -3,7 +3,10 @@
 import Lab007 from '../../components/content/lab007.md'
 
 const { x, y } = useWindowScroll()
-
+onMounted(() => {
+  x.value = 0
+  y.value = 0
+})
 const { isSupported, open, sRGBHex } = useEyeDropper()
 </script>
 

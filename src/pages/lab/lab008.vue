@@ -6,7 +6,10 @@ import Lab008b from '../../components/content/lab008b.md'
 import Lab008c from '../../components/content/lab008c.md'
 
 const { x, y } = useWindowScroll()
-
+onMounted(() => {
+  x.value = 0
+  y.value = 0
+})
 const alpha = ref(1)
 const canvas1 = ref(null)
 
@@ -133,23 +136,27 @@ onMounted(() => {
     enterTheMatrix()
   }, 50)
 
-  window.addEventListener('resize', (event) => {
+  window.addEventListener('resize', () => {
     debouncedFn()
   })
 })
 
 const leaveTheMatrix = () => {
   isShowCanvas.value = false
-  document.body.style = 'overflow: auto'
+  document.body.style = 'overflow-y: auto'
 }
 
 const showMatrix = () => {
   isShowCanvas.value = true
-  document.body.style = 'overflow: hidden'
+  document.body.style = 'overflow-y: hidden'
 }
 
 onUnmounted(() => {
-  document.body.style = 'overflow: auto'
+  document.body.style = 'overflow-y: auto'
+  clearInterval(intervalFn.value)
+  window.removeEventListener('resize', () => {
+    debouncedFn()
+  })
 })
 </script>
 
@@ -200,7 +207,7 @@ onUnmounted(() => {
     <Lab008b container />
 
     <!-- lab demo -->
-    <div md:mx-4 lg:mx-8 xl:mx-16 class="2xl:mx-28" mt-12 mb-12>
+    <div md:mx-4 lg:mx-8 xl:mx-16 class="2xl:mx-28" mt-14 mb-14>
       <div>
         <div ref="myDiv" p-6 class="w-[200px]" text-center text-white text-xl height="100" bg-green-500 @click="animateDiv">
           <p>

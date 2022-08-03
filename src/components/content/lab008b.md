@@ -45,4 +45,5 @@ onMounted(() => {
 
 > Tip: when working with 3rd-party libraries that require template refs (connecting to the DOM the "Vue way" as opposed to vanilla JS DOM manipulation), be aware that you'll have to do the `onMounted` dance and wrangle any scoping issues that may come up when you're trying to access something that's inside `onMounted` and is therefore not accessible from the template.
 
+***
 
