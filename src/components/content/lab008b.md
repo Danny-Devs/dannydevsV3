@@ -1,49 +1,48 @@
----
-number: 008b
-title: Enter the Canvas
-description: Vue JS education
----
+The pink rectangle you see above is the background of a `<canvas>` HTML element. This "canvas" provides you with a `context` for either 2D or WebGL (WebGL allows 3D). The context holds all sorts of properties that  can be used to make anything from animations to interactive experiences and games.
 
-The element animated above was not a `<canvas>` element--it is just a plain old `<div>`. You can use `requestAnimationFrame` to animate an element's CSS properties. I find this fascinating--there are multiple approaches to animation on the web explore and evaluate.
+Notice that the code snippet below is wrapped within an `onMounted` function--a Vue 3 lifecycle hook that fires after the .vue component has been mounted to the DOM. Without this hook, any template refs will error out because there is no DOM element to connect with.
 
-> Be aware of continously running animation/game loops since they can take up a lot of resources. The code snippet below uses an `if` check to turn off the animation loop after 2 seconds.
+We then utilize the context, `ctx`, provided by the canvas API to create the looping green square animation as well as the row of blue squares.
 
 ```javascript
-// template ref
-const myDiv = ref(null)
-// boolean flag
-const isDone = ref(false)
-// init
-let start, previousTimeStamp
-let scale = 1
+// template ref--canvas element must have id="myCanvas"
+const myCanvas = ref(null)
 
-// call this function with requestAnimationFrame
-function step(timestamp) {
-  if (start === undefined)
-    start = timestamp
+// onMounted lifecycle hook
+onMounted(() => {
+  // after mount, it's safe to work with myCanvas--not before!
+  myCanvas.value.style.background = 'violet'
 
-  const elapsed = timestamp - start
+  // get the appropriate context, '2d' or 'webgl'
+  const ctx = myCanvas.value.getContext('2d')
 
-  if (previousTimeStamp !== timestamp) {
-    const count = Math.min(0.1 * elapsed, 300)
 
-    scale += 0.005
-    scale = Math.min(scale, 2)
+  ctx.fillStyle = 'blue'
 
-    myDiv.value.style.transform = `translateX(${count}px) scale(${scale})`
+  // creates the row of blue squares
+  for (let i = 1; i <= 10; i++) {
+    alpha.value = i * 0.1
+    ctx.globalAlpha = alpha.value
 
-    if (count === 300)
-      isDone.value = true
+    ctx.fillRect(i * 50, 20, 40, 40)
   }
 
-  if (elapsed < 2000) {
-    previousTimeStamp = timestamp
-    if (!isDone.value)
-      window.requestAnimationFrame(step)
-  }
-}
+  ctx.fillStyle = 'green'
+  ctx.fillRect(100, 100, 100, 100)
 
-const animateDiv = () => window.requestAnimationFrame(step)
+  // function to create the green square fading in and out
+  const fadeOut = () => {
+    // notice the recursive loop -- this is the animation loop, using the built-in function `requestAnimationFrame`
+    requestAnimationFrame(fadeOut)
+    ctx.clearRect(100, 100, myCanvas.value.width, myCanvas.value.height)
+    ctx.globalAlpha = Math.sin(alpha.value)
+    ctx.fillRect(100, 100, 100, 100)
+    alpha.value += -0.05
+  }
+  fadeOut()
+})
 ```
 
-Between .svg and Lottie animations, the `<canvas>` 2d and webgl APIs, CSS animation, and requestAnimationFrame, animation on the web is multi-faceted and diverse. I will be continuing my expedition into canvas 2d, which serves as a foundation on top of which many excellent 3rd-party libraries have been written, including [pixi.js](https://pixijs.com/) (2D WebGL renderer), [matter.js](https://brm.io/matter-js/) (2D physics engine), [Phaser](https://phaser.io/) (2D game engine), and [Three.js](https://threejs.org/) (3D library). Until then, DannyDevs out!
+> Tip: when working with 3rd-party libraries that require template refs (connecting to the DOM the "Vue way" as opposed to vanilla JS DOM manipulation), be aware that you'll have to do the `onMounted` dance and wrangle any scoping issues that may come up when you're trying to access something that's inside `onMounted` and is therefore not accessible from the template.
+
+
