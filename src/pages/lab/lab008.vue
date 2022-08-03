@@ -1,5 +1,6 @@
 <script setup>
 // import associated .md files
+import { vScrollLock } from '@vueuse/components'
 import Lab008 from '../../components/content/lab008.md'
 import Lab008b from '../../components/content/lab008b.md'
 import Lab008c from '../../components/content/lab008c.md'
@@ -81,62 +82,81 @@ const mCanvas = ref(null)
 const isShowCanvas = ref(true)
 const intervalFn = ref(null)
 let mContext = {}
+const { width, height } = useWindowSize()
 
 const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン'
-const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const nums = '0123456789'
+
+const enterTheMatrix = () => {
+  clearInterval(intervalFn.value)
+  document.body.style = 'overflow: hidden'
+
+  mCanvas.value.width = width.value
+  mCanvas.value.height = height.value
+
+  const alphabet = katakana + nums
+
+  const fontSize = 16
+
+  const rainDrops = []
+
+  for (let x = 0; x < (width.value / fontSize); x++)
+    rainDrops[x] = 1
+
+  const draw = () => {
+    mContext.fillStyle = 'rgba(0, 0, 0, 0.05)'
+    mContext.fillRect(0, 0, width.value, height.value)
+
+    mContext.fillStyle = '#0F0'
+    mContext.font = `${fontSize}px monospace`
+
+    for (let i = 0; i < rainDrops.length; i++) {
+      const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length))
+      mContext.fillText(text, i * fontSize, rainDrops[i] * fontSize)
+
+      if (rainDrops[i] * fontSize > height.value && Math.random() > 0.975)
+        rainDrops[i] = 0
+
+      rainDrops[i]++
+    }
+  }
+
+  intervalFn.value = setInterval(draw, 90)
+}
 
 onMounted(() => {
   mContext = mCanvas.value.getContext('2d')
 
-  const enterTheMatrix = () => {
-    isShowCanvas.value = true
-    mCanvas.value.width = window.innerWidth
-    mCanvas.value.height = window.innerHeight
-
-    const alphabet = katakana + latin + nums
-
-    const fontSize = 16
-    const columns = mCanvas.value.width / fontSize
-
-    const rainDrops = []
-
-    for (let x = 0; x < columns; x++)
-      rainDrops[x] = 1
-
-    const draw = () => {
-      mContext.fillStyle = 'rgba(0, 0, 0, 0.05)'
-      mContext.fillRect(0, 0, mCanvas.value.width, mCanvas.value.height)
-
-      mContext.fillStyle = '#0F0'
-      mContext.font = `${fontSize}px monospace`
-
-      for (let i = 0; i < rainDrops.length; i++) {
-        const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length))
-        mContext.fillText(text, i * fontSize, rainDrops[i] * fontSize)
-
-        if (rainDrops[i] * fontSize > mCanvas.value.height && Math.random() > 0.975)
-          rainDrops[i] = 0
-
-        rainDrops[i]++
-      }
-    }
-
-    intervalFn.value = setInterval(draw, 60)
-  }
-
   enterTheMatrix()
+
+  const debouncedFn = useDebounceFn(() => {
+    enterTheMatrix()
+  }, 50)
+
+  window.addEventListener('resize', (event) => {
+    debouncedFn()
+  })
 })
 
-const toggleMatrix = () => {
-  isShowCanvas.value = !isShowCanvas.value
+const leaveTheMatrix = () => {
+  isShowCanvas.value = false
+  document.body.style = 'overflow: auto'
 }
+
+const showMatrix = () => {
+  isShowCanvas.value = true
+  document.body.style = 'overflow: hidden'
+}
+
+onUnmounted(() => {
+  document.body.style = 'overflow: auto'
+})
 </script>
 
 <template>
   <main container px-4 sm:px-8 lg:px-36 mx-auto min-h-screen mt-4 dark:text-cyan-300>
     <!-- canvas matrix background -->
-    <canvas v-show="isShowCanvas" ref="mCanvas" absolute top-0 left-0 class="z-1" @click="toggleMatrix" />
+    <canvas v-show="isShowCanvas" ref="mCanvas" absolute top-0 left-0 class="z-1" @click="leaveTheMatrix" />
 
     <!-- header -->
     <div pt-1 sm:pt-4 pb-4 flex gap-4 justify-between items-center>
@@ -155,15 +175,19 @@ const toggleMatrix = () => {
     <!-- lab demo -->
     <div md:mx-4 lg:mx-8 xl:mx-16 class="2xl:mx-28" mt-10>
       <div text-center>
-        <button bg-amber-400 px-6 py-2 rounded-lg shadow-lg hover:bg-amber-300 hover:shadow-none transition active:translate-y-1 @click="toggleMatrix">
+        <button dark:text-slate-900 bg-amber-400 px-6 py-2 rounded-lg shadow-lg hover:bg-amber-300 hover:shadow-none transition active:translate-y-1 @click="showMatrix">
           Bring back the Matrix
         </button>
+
+        <div mt-6>
+          window width: {{ width }}px
+        </div>
+        <div>window height: {{ height }}px</div>
       </div>
     </div>
     <!-- lab demo -->
 
     <Lab008 container />
-
 
     <!-- lab demo -->
     <div md:mx-4 lg:mx-8 xl:mx-16 class="2xl:mx-28" mt-10 mb-10>
@@ -176,7 +200,7 @@ const toggleMatrix = () => {
     <Lab008b container />
 
     <!-- lab demo -->
-    <div md:mx-4 lg:mx-8 xl:mx-16 class="2xl:mx-28" mt-12 mb->
+    <div md:mx-4 lg:mx-8 xl:mx-16 class="2xl:mx-28" mt-12 mb-12>
       <div>
         <div ref="myDiv" p-6 class="w-[200px]" text-center text-white text-xl height="100" bg-green-500 @click="animateDiv">
           <p>
