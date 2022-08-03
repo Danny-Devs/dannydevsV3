@@ -21,5 +21,5 @@ onMounted(() => {
 
 <route lang="yaml">
 meta:
-  layout: home
+  layout: matrix
 </route>

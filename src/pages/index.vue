@@ -5,7 +5,7 @@ import shakeSfx from '/pill-shake.mp3'
 
 const { play } = useSound(shakeSfx, {
   interrupt: true,
-  intensity: 0.5,
+  volume: 0.1,
 })
 
 const isAnimating = ref(true)
@@ -47,10 +47,13 @@ const closeModal = () => {
 onClickOutside(modalCard, () => {
   showDizzy.value = false
 })
+
+
 </script>
 
 <template>
-  <main bg-red-100 dark:bg-slate-900 container mx-auto h-full>
+  <main container mx-auto h-full>
+
     <!-- spacer -->
     <div py-5 />
 
@@ -59,7 +62,7 @@ onClickOutside(modalCard, () => {
       <div>
         <img
           hover:cursor-pointer
-          hover:scale-101
+          hover:scale-102
           transition
           :class="isAnimating ? 'animated-rotation' : ''"
           alt="DannyDevs avatar"
@@ -156,7 +159,7 @@ onClickOutside(modalCard, () => {
 
       <div text-base class="sm:w-4/5 xl:w-2/3 mx-auto" dark:text-cyan-300 dark:bg-gray-900 mb-11 bg-red-50 px-6 py-6 rounded-lg>
         <p mb-4>
-          I'm a front end web developer, designer, and content creator who primarily works in Vue JS. I also admire Svelte.
+          I'm a front end web developer, designer, and content creator. I work primarily with Vue JS, but I've also worked with React and Svelte.
         </p>
 
         <p mb-4>

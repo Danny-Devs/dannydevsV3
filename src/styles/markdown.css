@@ -90,7 +90,7 @@ html:not(.dark) .shiki-dark {
 } */
 
 .prose p code {
-  background: #fed9d9;
+  background: #fecfcf;
   font-family: monospace;
   font-size: 1.2em;
   font-weight: normal;
@@ -99,7 +99,7 @@ html:not(.dark) .shiki-dark {
   margin-left: 0.1em;
 }
 html.dark .prose p code {
-  background-color: #123e4f;
+  background-color: #15495d;
   font-family: monospace;
   font-size: 1.2em;
   font-weight: normal;

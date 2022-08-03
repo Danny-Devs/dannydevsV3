@@ -13,7 +13,7 @@ const drawRects = () => {
 
 onMounted(() => {
   const canvas = canvas1.value
-  canvas.style.background = "violet"
+  canvas.style.background = 'violet'
   const ctx = canvas.getContext('2d')
 
   const fadeOut = () => {
@@ -38,6 +38,41 @@ onMounted(() => {
 
   fadeOut()
 })
+
+const myDiv = ref(null)
+let start, previousTimeStamp
+const isDone = ref(false)
+let scale = 1
+
+function step(timestamp) {
+  if (start === undefined)
+    start = timestamp
+
+  const elapsed = timestamp - start
+
+  if (previousTimeStamp !== timestamp) {
+    const count = Math.min(0.1 * elapsed, 300)
+    scale += 0.005
+    scale = Math.min(scale, 2)
+    myDiv.value.style.transform = `translateX(${count}px) scale(${scale})`
+
+    if (count === 300)
+      isDone.value = true
+  }
+
+  if (elapsed < 2000) {
+    previousTimeStamp = timestamp
+    if (!isDone.value)
+      window.requestAnimationFrame(step)
+  }
+  else {
+    start = undefined
+    previousTimeStamp = undefined
+    scale = 1
+  }
+}
+
+const animateDiv = () => window.requestAnimationFrame(step)
 </script>
 
 <template>
@@ -57,7 +92,7 @@ onMounted(() => {
     <!-- content -->
 
     <!-- lab demo -->
-    <div md:mx-4 lg:mx-8 xl:mx-16 class="2xl:mx-28" mt-10>
+    <div md:mx-4 lg:mx-8 xl:mx-16 class="2xl:mx-28" mt-10 mb-10>
       <div>
         <canvas ref="canvas1" mx-auto width="550" height="220" />
       </div>
@@ -65,6 +100,20 @@ onMounted(() => {
     <!-- lab demo -->
 
     <Lab008 container />
+
+    <!-- lab demo -->
+    <div md:mx-4 lg:mx-8 xl:mx-16 class="2xl:mx-28" mt-12 mb-12>
+      <div>
+        <div ref="myDiv" p-6 class="w-[200px]" text-center text-white text-xl height="100" bg-green-500 @click="animateDiv">
+          <p>
+            Click to animate this div
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- lab demo -->
+
+    <Lab008b container />
 
     <!-- spacer for mobile footer -->
     <div py-12 />

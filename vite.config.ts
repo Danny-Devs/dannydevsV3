@@ -84,8 +84,8 @@ export default defineConfig({
       markdownItSetup(md) {
         md.use(Shiki, {
           theme: {
-            light: 'material-default',
-            dark: 'material-default',
+            light: 'dark-plus',
+            dark: 'dark-plus',
           },
         })
         md.use(LinkAttributes, {
