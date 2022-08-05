@@ -7,6 +7,14 @@ onMounted(() => {
   x.value = 0
   y.value = 0
 })
+
+// watchEffect(() => {
+//   if (input.value) {
+//     input.value.focus()
+//   } else {
+//     // not mounted yet, or the element was unmounted e.g. by v-if
+//   }
+// })
 </script>
 
 <template>
@@ -14,10 +22,10 @@ onMounted(() => {
     <!-- header -->
     <div pt-1 sm:pt-4 pb-4 flex gap-4 justify-between items-center>
       <h2 text-2xl>
-        lab009: Enter the Matrix
+        lab009: Let's get Focused
       </h2>
       <p text-center>
-        Aug 2, 2022
+        Aug 3, 2022
       </p>
     </div>
     <hr>
@@ -27,10 +35,8 @@ onMounted(() => {
 
     <!-- lab demo -->
     <div md:mx-4 lg:mx-8 xl:mx-16 class="2xl:mx-28" mt-10>
-      <div text-center>
-        <button bg-amber-400 px-6 py-2 rounded-lg shadow-lg hover:bg-amber-300 hover:shadow-none transition active:translate-y-1 @click="toggleMatrix">
-          Bring back the Matrix
-        </button>
+      <div>
+        hi
       </div>
     </div>
     <!-- lab demo -->
@@ -49,5 +55,5 @@ onMounted(() => {
 
 <route lang="yaml">
 meta:
-  layout: matrix
+  layout: home
 </route>
