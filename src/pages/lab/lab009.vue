@@ -10,9 +10,9 @@ onMounted(() => {
 
 const isCustomModalOpen = ref(false)
 
-const bill = ref(0)
+const bill = ref(null)
 const numDiners = ref(1)
-const percentTip = ref(0)
+const percentTip = ref(null)
 const customTip = ref(null)
 
 const totalBill = computed(() => {
@@ -30,7 +30,12 @@ const totalTip = computed(() => {
 })
 
 const totalAmountPerPerson = computed(() => {
-  return totalBill.value === 0 ? 0 : (totalBill.value / numDiners.value).toFixed(2)
+  if (totalBill.value)
+
+    return (totalBill.value / numDiners.value).toFixed(2)
+
+  else
+    return null
 })
 
 const tipAmountPerPerson = computed(() => {
@@ -59,9 +64,9 @@ const submitCustomTip = (event) => {
 }
 
 const reset = () => {
-  bill.value = 0
+  bill.value = null
   numDiners.value = 1
-  percentTip.value = 0
+  percentTip.value = null
 }
 </script>
 
@@ -93,7 +98,7 @@ const reset = () => {
               Bill
             </p>
             <div mb-6 flex justify-between>
-              <input v-model="bill" relative text-right rounded-md w-full class="billInput bg-[#F3F9FA]" py-2 px-4 type="number" step="0.01">
+              <input v-model="bill" relative text-right rounded-md w-full class="billInput bg-[#F3F9FA] focus:outline-2 focus:outline-[#26C2AE]" py-2 px-4 type="number" step="0.01" autofocus>
               <p
                 absolute pl-2 pt-2 z-10 class="text-[#9EBBBD];"
               >
