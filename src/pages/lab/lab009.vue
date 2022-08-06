@@ -1,11 +1,45 @@
 <script setup>
 // import associated .md files
+import { useToggle } from '@vueuse/core'
 import Lab009 from '../../components/content/lab009.md'
 
 const { x, y } = useWindowScroll()
 onMounted(() => {
   x.value = 0
   y.value = 0
+})
+
+const isCustomModalOpen = ref(false)
+
+const bill = ref(0)
+const numDiners = ref(1)
+const percentTip = ref(0)
+const customTip = ref(null)
+
+const totalBill = computed(() => {
+  if (percentTip.value === 0)
+    return bill.value
+  if (percentTip.value > 0)
+    return bill.value * (1 + percentTip.value / 100)
+})
+
+const totalTip = computed(() => {
+  if (percentTip.value === 0)
+    return 0
+  if (percentTip.value > 0)
+    return bill.value * (percentTip.value / 100)
+})
+
+const totalAmountPerPerson = computed(() => {
+  return totalBill.value === 0 ? 0 : (totalBill.value / numDiners.value).toFixed(2)
+})
+
+const tipAmountPerPerson = computed(() => {
+  if (totalTip.value === 0)
+    return 0
+
+  else if (totalTip.value > 0)
+    return (totalTip.value / numDiners.value).toFixed(2)
 })
 
 // watchEffect(() => {
@@ -15,6 +49,30 @@ onMounted(() => {
 //     // not mounted yet, or the element was unmounted e.g. by v-if
 //   }
 // })
+
+const setPercentTip = (percent) => {
+  percentTip.value = percent
+}
+
+const openCustomModal = () => {
+// open modal with input for custom tip percentage
+  isCustomModalOpen.value = true
+}
+
+const submitCustomTip = (event) => {
+  // close modal
+  isCustomModalOpen.value = false
+  // set tip percentage
+  console.log(customTip.value)
+  percentTip.value = customTip.value
+  customTip.value = null
+}
+
+const reset = () => {
+  bill.value = 0
+  numDiners.value = 1
+  percentTip.value = 0
+}
 </script>
 
 <template>
@@ -35,47 +93,112 @@ onMounted(() => {
 
     <!-- lab demo -->
     <div md:mx-4 lg:mx-8 xl:mx-16 class="2xl:mx-28" mt-10>
-      <div rounded-lg bg-white grid grid-cols-1 sm:grid-cols-2 gap-4 pb-6>
+      <!-- TIP CALCULATOR -->
+      <div rounded-lg shadow-lg bg-white grid grid-cols-1 sm:grid-cols-2 gap-4 pb-6 class="font-space text-[#5E7A7D]">
         <!-- column 1 -->
         <div bg-white rounded-lg px-6 pt-6 mb-4>
           <!-- block 1 -->
           <div>
-            <p>Bill</p>
-            <div rounded-md w-full class="bg-[#F3F9FA]" py-2 px-4 flex justify-between>
-              <p>$</p>
-              <p>142.55</p>
+            <p mb-2 font-semibold sm:text-sm>
+              Bill
+            </p>
+            <div mb-6 flex justify-between>
+              <input v-model="bill" relative text-right rounded-md w-full class="billInput bg-[#F3F9FA]" py-2 px-4 type="number" step="0.01">
+              <p
+                absolute pl-2 pt-2 z-10 class="text-[#9EBBBD];"
+              >
+                $
+              </p>
             </div>
           </div>
           <!-- block 2 -->
-          <div>
-            <p>Select Tip %</p>
+          <div mb-4>
+            <p font-semibold sm:text-sm mb-3>
+              Select Tip %
+            </p>
             <div grid grid-cols-2 sm:grid-cols-3 gap-x-3 gap-y-3>
-              <div class="bg-[#00474B] rounded-md text-white" text-center py-3 text-xl font-semibold>
+              <button class="bg-[#00474B] rounded-md text-white" text-center py-3 sm:text-sm text-xl font-semibold @click="setPercentTip(5)">
                 5%
-              </div>
-              <div class="bg-[#00474B] rounded-md text-white" text-center py-3 text-xl font-semibold>
+              </button>
+              <button class="bg-[#00474B] rounded-md text-white" text-center py-3 sm:text-sm text-xl font-semibold @click="percentTip = 10">
                 10%
-              </div>
-              <div class="bg-[#26C2AE] rounded-md text-white" text-center py-3 text-xl font-semibold>
+              </button>
+              <button class="bg-[#26C2AE] rounded-md text-white" text-center py-3 sm:text-sm text-xl font-semibold @click="percentTip = 15">
                 15%
-              </div>
-              <div class="bg-[#00474B] rounded-md text-white" text-center py-3 text-xl font-semibold>
+              </button>
+              <button class="bg-[#00474B] rounded-md text-white" text-center py-3 sm:text-sm text-xl font-semibold @click="percentTip = 25">
                 25%
-              </div>
-              <div class="bg-[#00474B] rounded-md text-white" text-center py-3 text-xl font-semibold>
+              </button>
+              <button class="bg-[#00474B] rounded-md text-white" text-center py-3 sm:text-sm text-xl font-semibold @click="percentTip = 50">
                 50%
-              </div>
-              <div class="bg-[#F3F9FA] rounded-md text-[#547878]" text-center py-3 text-xl font-semibold>
+              </button>
+              <button class="bg-[#F3F9FA] rounded-md text-[#547878]" text-center py-3 sm:text-sm text-xl font-semibold @click="openCustomModal">
                 Custom
-              </div>
+              </button>
+              <Teleport to="body">
+                <div v-if="isCustomModalOpen" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                  <!--
+                  Background backdrop, show/hide based on modal state.
+
+                  Entering: "ease-out duration-300"
+                    From: "opacity-0"
+                    To: "opacity-100"
+                  Leaving: "ease-in duration-200"
+                    From: "opacity-100"
+                    To: "opacity-0"
+                -->
+                  <div class="fixed inset-0 bg-gray-600 bg-opacity-75 transition-opacity" />
+
+                  <div class="fixed z-10 inset-0 overflow-y-auto">
+                    <div class="flex items-center justify-center min-h-full p-0">
+                      <!--
+        Modal panel, show/hide based on modal state.
+
+        Entering: "ease-out duration-300"
+          From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          To: "opacity-100 translate-y-0 sm:scale-100"
+        Leaving: "ease-in duration-200"
+          From: "opacity-100 translate-y-0 sm:scale-100"
+          To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+      -->
+                      <div class="rounded-lg overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full">
+                        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                          <div class="mt-3 text-center sm:text-left">
+                            <h3 class="text-lg text-gray-900">
+                              Enter a custom tip %
+                            </h3>
+                            <div class="mt-2">
+                              <input v-model="customTip" text-right rounded-md w-full class="billInput bg-[#F3F9FA]" py-2 px-4 type="number" step="1">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                          <button class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm  px-4 py-2 bg-[#26C2AE] text-base font-medium text-white hover:bg-[#2fdac4] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#26C2AE] sm:ml-3 sm:w-auto sm:text-sm" @click="submitCustomTip($event)">
+                            Submit
+                          </button>
+                          <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" @click="isCustomModalOpen = !isCustomModalOpen">
+                            Cancel
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Teleport>
             </div>
           </div>
           <!-- block 3 -->
           <div>
-            <p>Number of People</p>
-            <div rounded-md w-full class="bg-[#F3F9FA]" py-2 px-4 flex justify-between>
-              <div i-carbon-user />
-              <p>5</p>
+            <p mb-2 font-semibold text-sm>
+              Number of People
+            </p>
+            <div mb-6 flex justify-between>
+              <input v-model="numDiners" relative text-right rounded-md w-full class="dinerInput bg-[#F3F9FA]" py-2 px-4 type="number">
+              <div
+                absolute pl-2 pt-2 z-10 class="text-[#9EBBBD];"
+              >
+                <div i-carbon-user />
+              </div>
             </div>
           </div>
         </div>
@@ -85,34 +208,34 @@ onMounted(() => {
           <!-- row 1 -->
           <div flex gap-4 justify-between>
             <div text-left>
-              <p text-white>
+              <p text-white sm:text-sm>
                 Tip Amount
               </p>
-              <p class="text-[#7F9D9F]">
+              <p sm:text-sm class="text-[#7F9D9F]">
                 / person
               </p>
             </div>
-            <div class="text-[#26C2AE]" text-3xl>
-              $0.00
+            <div class="text-[#26C2AE]" text-3xl sm:text-2xl>
+              ${{ tipAmountPerPerson }}
             </div>
           </div>
           <!-- row 2 -->
           <div flex gap-4 mt-8 justify-between>
             <div>
-              <p text-white>
+              <p sm:text-sm text-white>
                 Total
               </p>
-              <p class="text-[#7F9D9F]">
+              <p sm:text-sm class="text-[#7F9D9F]">
                 / person
               </p>
             </div>
-            <div class="text-[#26C2AE]" text-3xl>
-              $0.00
+            <div class="text-[#26C2AE]" text-3xl sm:text-2xl>
+              ${{ totalAmountPerPerson }}
             </div>
           </div>
           <!-- row 3 -->
-          <div text-center mt-8>
-            <button class="bg-[#26C2AE]" py-3 block w-full font-bold rounded-md>
+          <div text-center mt-8 flex h-full>
+            <button @click="reset" self-end class="bg-[#26C2AE] text-[#00474B]" py-3 block w-full font-bold rounded-md>
               RESET
             </button>
           </div>
@@ -130,7 +253,21 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.billInput::before {
+  content: "$";
+}
 
+/* Chrome, Safari, Edge, Opera */
+.billInput::-webkit-outer-spin-button,
+.billInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.billInput {
+  -moz-appearance: textfield;
+}
 </style>
 
 <route lang="yaml">

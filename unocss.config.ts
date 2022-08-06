@@ -28,6 +28,8 @@ export default defineConfig({
         sans: 'DM Sans',
         serif: 'DM Serif Display',
         mono: 'DM Mono',
+        // custom fonts
+        space: 'Space Mono',
       },
     }),
   ],

@@ -6,6 +6,7 @@ specifiers:
   '@intlify/vite-plugin-vue-i18n': ^4.0.0
   '@types/markdown-it-link-attributes': ^3.0.1
   '@types/nprogress': ^0.2.0
+  '@unocss/preset-web-fonts': ^0.45.5
   '@vitejs/plugin-vue': ^3.0.1
   '@vue/test-utils': ^2.0.2
   '@vueuse/components': ^9.0.2
@@ -63,6 +64,7 @@ devDependencies:
   '@intlify/vite-plugin-vue-i18n': 4.0.0_vite@3.0.3+vue-i18n@9.1.10
   '@types/markdown-it-link-attributes': 3.0.1
   '@types/nprogress': 0.2.0
+  '@unocss/preset-web-fonts': 0.45.5
   '@vitejs/plugin-vue': 3.0.1_vite@3.0.3+vue@3.2.37
   '@vue/test-utils': 2.0.2_vue@3.2.37
   critters: 0.0.16
@@ -1988,6 +1990,10 @@ packages:
     resolution: {integrity: sha512-EPs3IxvPdzxEkEynAyCqyJX25IPp5RtFK3mFdgmXGvigwpgq9sxJBzQRXmYNtDeZriSyiwjYmc9yclLEJH3IiA==}
     dev: true
 
+  /@unocss/core/0.45.5:
+    resolution: {integrity: sha512-6boP8sGTRb+nE87pdjii7otO/tguIlDkFh90E6mglA0XdjHWiLCCNlgJoxgjCGCPNYUm/Nojx0bUbcokuqBZDw==}
+    dev: true
+
   /@unocss/inspector/0.44.7:
     resolution: {integrity: sha512-uH0dla42tiKEfCpgCcDLC0FwKzrNRLqsN7R3az0B/eHSkeOuXrg7jdA9RWaNNmjnl6/ZOqevtyE5+g7JZf7E6A==}
     dependencies:
@@ -2041,6 +2047,13 @@ packages:
     resolution: {integrity: sha512-1dI3B9LnSt9yLnvsVsiI454SMhlraRdyNU1xrBQ8Z0YBF41/it0yk4+xf2uD8o87brBgfTib4gzPdVxgqQsiqQ==}
     dependencies:
       '@unocss/core': 0.44.7
+      ohmyfetch: 0.4.18
+    dev: true
+
+  /@unocss/preset-web-fonts/0.45.5:
+    resolution: {integrity: sha512-wusZRdGXpAVWbdyNP7Cd7D1hWuAEG1jch4kXzRNyjZ4Uo7ImGY42yEysjXpuNizA29i0Xe9FtT99kCqOcQwHRQ==}
+    dependencies:
+      '@unocss/core': 0.45.5
       ohmyfetch: 0.4.18
     dev: true
 
