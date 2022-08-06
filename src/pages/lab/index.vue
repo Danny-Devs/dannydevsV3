@@ -32,11 +32,11 @@ onMounted(() => {
       </h2>
     </div>
     <div class="sm:w-3/5 px-4" text-left mx-auto flex flex-col gap-2 items-start>
-      <!-- <router-link to="/lab/lab009">
+      <router-link to="/lab/lab009">
         <p dark:text-cyan-400 text-cyan-600 text-xl hover:underline>
-          Lab009: Enter the Matrix
+          Lab009: Tip Calculator
         </p>
-      </router-link> -->
+      </router-link>
       <router-link to="/lab/lab008">
         <p dark:text-cyan-400 text-cyan-600 text-xl hover:underline>
           Lab008: Enter the Canvas

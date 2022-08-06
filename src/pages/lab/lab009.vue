@@ -1,6 +1,5 @@
 <script setup>
 // import associated .md files
-import { useToggle } from '@vueuse/core'
 import Lab009 from '../../components/content/lab009.md'
 
 const { x, y } = useWindowScroll()
@@ -42,14 +41,6 @@ const tipAmountPerPerson = computed(() => {
     return (totalTip.value / numDiners.value).toFixed(2)
 })
 
-// watchEffect(() => {
-//   if (input.value) {
-//     input.value.focus()
-//   } else {
-//     // not mounted yet, or the element was unmounted e.g. by v-if
-//   }
-// })
-
 const setPercentTip = (percent) => {
   percentTip.value = percent
 }
@@ -63,7 +54,6 @@ const submitCustomTip = (event) => {
   // close modal
   isCustomModalOpen.value = false
   // set tip percentage
-  console.log(customTip.value)
   percentTip.value = customTip.value
   customTip.value = null
 }
@@ -83,7 +73,7 @@ const reset = () => {
         lab009: Tip Calculator
       </h2>
       <p text-center>
-        Aug 3, 2022
+        Aug 6, 2022
       </p>
     </div>
     <hr>
@@ -168,7 +158,7 @@ const reset = () => {
                               Enter a custom tip %
                             </h3>
                             <div class="mt-2">
-                              <input v-model="customTip" text-right rounded-md w-full class="billInput bg-[#F3F9FA]" py-2 px-4 type="number" step="1">
+                              <input v-model="customTip" text-right rounded-md w-full class="bg-[#F3F9FA]" py-2 px-4 type="number" step="1">
                             </div>
                           </div>
                         </div>
@@ -209,10 +199,21 @@ const reset = () => {
           <div flex gap-4 justify-between>
             <div text-left>
               <p text-white sm:text-sm>
+                Tip Percent
+              </p>
+            </div>
+            <div class="text-[#26C2AE]" text-3xl sm:text-2xl>
+              {{ percentTip }}%
+            </div>
+          </div>
+          <!-- row 1 -->
+          <div flex gap-4 justify-between mt-6>
+            <div text-left>
+              <p text-white sm:text-sm>
                 Tip Amount
               </p>
               <p sm:text-sm class="text-[#7F9D9F]">
-                / person
+                per person
               </p>
             </div>
             <div class="text-[#26C2AE]" text-3xl sm:text-2xl>
@@ -220,13 +221,13 @@ const reset = () => {
             </div>
           </div>
           <!-- row 2 -->
-          <div flex gap-4 mt-8 justify-between>
+          <div flex gap-4 mt-6 justify-between>
             <div>
               <p sm:text-sm text-white>
                 Total
               </p>
               <p sm:text-sm class="text-[#7F9D9F]">
-                / person
+                per person
               </p>
             </div>
             <div class="text-[#26C2AE]" text-3xl sm:text-2xl>
@@ -235,7 +236,7 @@ const reset = () => {
           </div>
           <!-- row 3 -->
           <div text-center mt-8 flex h-full>
-            <button @click="reset" self-end class="bg-[#26C2AE] text-[#00474B]" py-3 block w-full font-bold rounded-md>
+            <button self-end class="bg-[#26C2AE] text-[#00474B]" py-3 block w-full font-bold rounded-md @click="reset">
               RESET
             </button>
           </div>
@@ -253,10 +254,6 @@ const reset = () => {
 </template>
 
 <style scoped>
-.billInput::before {
-  content: "$";
-}
-
 /* Chrome, Safari, Edge, Opera */
 .billInput::-webkit-outer-spin-button,
 .billInput::-webkit-inner-spin-button {
