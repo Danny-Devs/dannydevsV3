@@ -11,7 +11,7 @@ onMounted(() => {
 const isCustomModalOpen = ref(false)
 
 const bill = ref(null)
-const numDiners = ref(1)
+const numDiners = ref(null)
 const percentTip = ref(null)
 const customTip = ref(null)
 const customTipInputEl = ref(null)
@@ -24,7 +24,7 @@ watch(percentTip, () => {
 
 watch(numDiners, () => {
   if (numDiners.value < 1)
-    numDiners.value = 1
+    numDiners.value = null
 })
 
 watch(bill, () => {
@@ -98,10 +98,9 @@ const submitCustomTip = (event) => {
 const reset = () => {
   billInputEl.value.focus()
   bill.value = null
-  numDiners.value = 1
+  numDiners.value = null
   percentTip.value = null
 }
-
 </script>
 
 <template>
