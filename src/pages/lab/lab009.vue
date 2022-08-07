@@ -15,6 +15,12 @@ const numDiners = ref(1)
 const percentTip = ref(null)
 const customTip = ref(null)
 const customTipInputEl = ref(null)
+const billInputEl = ref(null)
+
+watch(percentTip, () => {
+  if (percentTip.value < 0)
+    percentTip.value = 0
+})
 
 watch(numDiners, () => {
   if (numDiners.value < 1)
@@ -49,20 +55,27 @@ const totalTip = computed(() => {
 })
 
 const totalAmountPerPerson = computed(() => {
-  if (totalBill.value)
+  if (bill.value && percentTip.value && numDiners.value) {
+    if (totalBill.value)
 
-    return (totalBill.value / numDiners.value).toFixed(2)
+      return (totalBill.value / numDiners.value).toFixed(2)
 
-  else
-    return null
+    else
+      return null
+  }
+  return null
 })
 
 const tipAmountPerPerson = computed(() => {
-  if (totalTip.value === 0)
-    return 0
+  if (bill.value && percentTip.value && numDiners.value) {
+    if (totalTip.value === 0)
+      return 0
 
-  else if (totalTip.value > 0)
-    return (totalTip.value / numDiners.value).toFixed(2)
+    else if (totalTip.value > 0)
+      return (totalTip.value / numDiners.value).toFixed(2)
+  }
+
+  return null
 })
 
 const setPercentTip = (percent) => {
@@ -83,10 +96,12 @@ const submitCustomTip = (event) => {
 }
 
 const reset = () => {
+  billInputEl.value.focus()
   bill.value = null
   numDiners.value = 1
   percentTip.value = null
 }
+
 </script>
 
 <template>
@@ -117,7 +132,7 @@ const reset = () => {
               Bill
             </p>
             <div mb-6 flex justify-between>
-              <input v-model="bill" relative text-right rounded-md w-full class="billInput bg-gray-200 focus:outline-2 focus:outline-[#26C2AE]" py-2 px-4 type="number" step="0.01" autofocus>
+              <input ref="billInputEl" v-model="bill" relative text-right rounded-md w-full class="billInput bg-gray-200 focus:outline-2 focus:outline-[#26C2AE]" py-2 px-4 type="number" step="0.01" autofocus>
               <p
                 absolute pl-2 pt-2 z-10 class="text-[#9EBBBD];"
               >
@@ -278,6 +293,7 @@ const reset = () => {
 </template>
 
 <style scoped>
+/* removes up/down arrows for number inputs */
 /* Chrome, Safari, Edge, Opera */
 .billInput::-webkit-outer-spin-button,
 .billInput::-webkit-inner-spin-button {
