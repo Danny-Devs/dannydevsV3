@@ -14,6 +14,25 @@ const bill = ref(null)
 const numDiners = ref(1)
 const percentTip = ref(null)
 const customTip = ref(null)
+const customTipInputEl = ref(null)
+
+watch(numDiners, () => {
+  if (numDiners.value < 1)
+    numDiners.value = 1
+})
+
+watch(bill, () => {
+  if (bill.value < 0)
+    bill.value = null
+})
+
+watch(isCustomModalOpen, async () => {
+  if (isCustomModalOpen.value) {
+    await nextTick(() => {
+      customTipInputEl.value.focus()
+    })
+  }
+})
 
 const totalBill = computed(() => {
   if (percentTip.value === 0)
@@ -98,7 +117,7 @@ const reset = () => {
               Bill
             </p>
             <div mb-6 flex justify-between>
-              <input v-model="bill" relative text-right rounded-md w-full class="billInput bg-[#F3F9FA] focus:outline-2 focus:outline-[#26C2AE]" py-2 px-4 type="number" step="0.01" autofocus>
+              <input v-model="bill" relative text-right rounded-md w-full class="billInput bg-gray-200 focus:outline-2 focus:outline-[#26C2AE]" py-2 px-4 type="number" step="0.01" autofocus>
               <p
                 absolute pl-2 pt-2 z-10 class="text-[#9EBBBD];"
               >
@@ -107,27 +126,27 @@ const reset = () => {
             </div>
           </div>
           <!-- block 2 -->
-          <div mb-4>
+          <div mb-6>
             <p font-semibold sm:text-sm mb-3>
               Select Tip %
             </p>
             <div grid grid-cols-2 sm:grid-cols-3 gap-x-3 gap-y-3>
-              <button class="bg-[#00474B] rounded-md text-white" text-center py-3 sm:text-sm text-xl font-semibold @click="setPercentTip(5)">
+              <button class="bg-[#00474B] active:bg-[#9FE8DF] hover:bg-[#26C2AE] rounded-md text-white" transition text-center py-3 sm:text-sm text-xl font-semibold @click="setPercentTip(5)">
                 5%
               </button>
-              <button class="bg-[#00474B] rounded-md text-white" text-center py-3 sm:text-sm text-xl font-semibold @click="percentTip = 10">
+              <button class="bg-[#00474B] active:bg-[#9FE8DF] hover:bg-[#26C2AE] rounded-md text-white" transition text-center py-3 sm:text-sm text-xl font-semibold @click="percentTip = 10">
                 10%
               </button>
-              <button class="bg-[#26C2AE] rounded-md text-white" text-center py-3 sm:text-sm text-xl font-semibold @click="percentTip = 15">
+              <button class="bg-[#00474B] active:bg-[#9FE8DF] hover:bg-[#26C2AE] rounded-md text-white" transition text-center py-3 sm:text-sm text-xl font-semibold @click="percentTip = 15">
                 15%
               </button>
-              <button class="bg-[#00474B] rounded-md text-white" text-center py-3 sm:text-sm text-xl font-semibold @click="percentTip = 25">
+              <button class="bg-[#00474B] active:bg-[#9FE8DF] hover:bg-[#26C2AE] rounded-md text-white" transition text-center py-3 sm:text-sm text-xl font-semibold @click="percentTip = 25">
                 25%
               </button>
-              <button class="bg-[#00474B] rounded-md text-white" text-center py-3 sm:text-sm text-xl font-semibold @click="percentTip = 50">
+              <button class="bg-[#00474B] active:bg-[#9FE8DF] hover:bg-[#26C2AE] rounded-md text-white" transition text-center py-3 sm:text-sm text-xl font-semibold @click="percentTip = 50">
                 50%
               </button>
-              <button class="bg-[#F3F9FA] rounded-md text-[#547878]" text-center py-3 sm:text-sm text-xl font-semibold @click="openCustomModal">
+              <button class="bg-[#F3F9FA] active:bg-[#9FE8DF] hover:bg-[#26C2AE] rounded-md text-[#547878]" hover:bg-gray-200 text-center py-3 sm:text-sm text-xl transition font-semibold @click="openCustomModal">
                 Custom
               </button>
               <Teleport to="body">
@@ -163,7 +182,7 @@ const reset = () => {
                               Enter a custom tip %
                             </h3>
                             <div class="mt-2">
-                              <input v-model="customTip" text-right rounded-md w-full class="bg-[#F3F9FA]" py-2 px-4 type="number" step="1">
+                              <input ref="customTipInputEl" v-model="customTip" text-right rounded-md w-full class="bg-[#F3F9FA] focus:outline-2 focus:outline-[#26C2AE]" py-2 px-4 type="number" step="1">
                             </div>
                           </div>
                         </div>
@@ -184,13 +203,13 @@ const reset = () => {
           </div>
           <!-- block 3 -->
           <div>
-            <p mb-2 font-semibold text-sm>
+            <p mb-2 font-semibold sm:text-sm>
               Number of People
             </p>
             <div mb-6 flex justify-between>
-              <input v-model="numDiners" relative text-right rounded-md w-full class="dinerInput bg-[#F3F9FA]" py-2 px-4 type="number">
+              <input v-model="numDiners" relative text-right rounded-md w-full class="dinerInput bg-gray-200 focus:outline-2 focus:outline-[#26C2AE]" py-2 px-4 type="number">
               <div
-                absolute pl-2 pt-2 z-10 class="text-[#9EBBBD];"
+                absolute pl-2 pt-3 z-10 class="text-[#9EBBBD];"
               >
                 <div i-carbon-user />
               </div>
@@ -241,7 +260,7 @@ const reset = () => {
           </div>
           <!-- row 3 -->
           <div text-center mt-8 flex h-full>
-            <button self-end class="bg-[#26C2AE] text-[#00474B]" py-3 block w-full font-bold rounded-md @click="reset">
+            <button self-end class="bg-[#26C2AE] hover:bg-[#2cd6c0] active:bg-[#9FE8DF] text-[#00474B]" py-3 block w-full font-bold rounded-md @click="reset">
               RESET
             </button>
           </div>

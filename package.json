@@ -20,6 +20,7 @@
     "matter-js": "^0.18.0",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.17",
+    "vee-validate": "^4.6.2",
     "vue": "^3.2.37",
     "vue-demi": "^0.13.6",
     "vue-i18n": "^9.1.10",
