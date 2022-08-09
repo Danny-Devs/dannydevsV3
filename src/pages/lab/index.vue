@@ -10,24 +10,24 @@ onMounted(() => {
 <template>
   <main class="text-center text-gray-700 dark:text-cyan-400 min-h-screen">
     <div flex justify-center>
-      <h2 text-xl sm:text-lg mt-6 mb-3 border-b-2 sm:border-b-1 w-fit>
+      <h2 text-xl sm:text-lg mt-6 mb-5 border-b-2 sm:border-b-1 w-fit>
         Web projects:
       </h2>
     </div>
     <div class="sm:w-3/5 px-4" text-left mx-auto flex flex-col gap-2 items-start>
       <a href="https://cute-horse-892b24.netlify.app/" target="_blank">
-        <p dark:text-cyan-400 text-cyan-600 text-2xl sm:text-xl pb-1 hover:underline>
+        <p dark:text-cyan-400 text-cyan-600 text-xl pb-1 hover:underline>
           Responsive website with dark mode
         </p>
       </a>
       <a href="https://merry-alpaca-3a7e8d.netlify.app/" target="_blank">
-        <p dark:text-cyan-400 text-cyan-600 text-2xl sm:text-xl pb-1 hover:underline>
+        <p dark:text-cyan-400 text-cyan-600 text-xl pb-1 hover:underline>
           Actionator: Focus on your to-dos one at a time
         </p>
       </a>
     </div>
     <div flex justify-center>
-      <h2 text-xl sm:text-lg mt-8 mb-4 border-b-2 sm:border-b-1 w-fit>
+      <h2 text-xl sm:text-lg mt-8 mb-5 border-b-2 sm:border-b-1 w-fit>
         Experiments:
       </h2>
     </div>
