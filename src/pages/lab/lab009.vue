@@ -132,10 +132,8 @@ const handleCancel = () => {
     <hr>
     <!-- end header -->
 
-    <!-- content -->
-
     <!-- lab demo -->
-    <div md:mx-4 lg:mx-8 xl:mx-16 class="2xl:mx-28" mt-10>
+    <div mb-12 md:mx-4 lg:mx-8 xl:mx-16 class="2xl:mx-28" mt-10>
       <!-- TIP CALCULATOR -->
       <div rounded-lg shadow-lg bg-white grid grid-cols-1 sm:grid-cols-2 gap-4 pb-6 class="font-space text-[#5E7A7D]">
         <!-- column 1 -->
