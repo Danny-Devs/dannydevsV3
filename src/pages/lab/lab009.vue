@@ -1,5 +1,6 @@
 <script setup>
 // import associated .md files
+import { ErrorMessage, Field, Form } from 'vee-validate'
 import Lab009 from '../../components/content/lab009.md'
 
 const { x, y } = useWindowScroll()
@@ -35,7 +36,7 @@ watch(bill, () => {
 watch(isCustomModalOpen, async () => {
   if (isCustomModalOpen.value) {
     await nextTick(() => {
-      customTipInputEl.value.focus()
+      // customTipInputEl.value.focus()
     })
   }
 })
@@ -87,7 +88,7 @@ const openCustomModal = () => {
   isCustomModalOpen.value = true
 }
 
-const submitCustomTip = (event) => {
+const submitCustomTip = () => {
   // close modal
   isCustomModalOpen.value = false
   // set tip percentage
@@ -95,11 +96,25 @@ const submitCustomTip = (event) => {
   customTip.value = null
 }
 
+const validateEmail = (value) => {
+  if (!value)
+    return 'Please enter a number'
+  if (value <= 0)
+    return 'Please enter a positive number'
+
+  return true
+}
+
 const reset = () => {
   billInputEl.value.focus()
   bill.value = null
   numDiners.value = null
   percentTip.value = null
+}
+
+const handleCancel = () => {
+  isCustomModalOpen.value = !isCustomModalOpen.value
+  customTip.value = null
 }
 </script>
 
@@ -189,26 +204,44 @@ const reset = () => {
           From: "opacity-100 translate-y-0 sm:scale-100"
           To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
       -->
-                      <div class="rounded-lg overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full">
-                        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                          <div class="mt-3 text-center sm:text-left">
-                            <h3 class="text-lg text-gray-900">
-                              Enter a custom tip %
-                            </h3>
-                            <div class="mt-2">
-                              <input ref="customTipInputEl" v-model="customTip" text-right rounded-md w-full class="bg-[#F3F9FA] focus:outline-2 focus:outline-[#26C2AE]" py-2 px-4 type="number" step="1">
+                      <Form @submit="submitCustomTip(values)">
+                        <div class="rounded-lg overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full">
+                          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                            <div class="mt-3 text-center sm:text-left">
+                              <h3 class="text-gray-900">
+                                Enter a custom tip %
+                              </h3>
+                              <div class="mt-2">
+                                <Field
+                                  ref="customTipInputEl"
+                                  v-model="customTip"
+                                  :rules="validateEmail"
+                                  class="bg-gray-200 focus:outline-2 focus:outline-[#26C2AE]"
+                                  name="customtip"
+                                  step="1"
+                                  type="number"
+                                  px-4
+                                  py-2
+                                  rounded-md
+                                  text-right
+                                  w-full
+                                />
+                                <div text-xs text-right mt-1>
+                                  <ErrorMessage name="customtip" text-red-400 text-right />
+                                </div>
+                              </div>
                             </div>
                           </div>
+                          <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                            <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm  px-4 py-2 bg-[#26C2AE] text-base font-medium text-white hover:bg-[#2fdac4] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#26C2AE] sm:ml-3 sm:w-auto sm:text-sm">
+                              Submit
+                            </button>
+                            <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" @click="handleCancel">
+                              Cancel
+                            </button>
+                          </div>
                         </div>
-                        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                          <button class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm  px-4 py-2 bg-[#26C2AE] text-base font-medium text-white hover:bg-[#2fdac4] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#26C2AE] sm:ml-3 sm:w-auto sm:text-sm" @click="submitCustomTip($event)">
-                            Submit
-                          </button>
-                          <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" @click="isCustomModalOpen = !isCustomModalOpen">
-                            Cancel
-                          </button>
-                        </div>
-                      </div>
+                      </Form>
                     </div>
                   </div>
                 </div>
