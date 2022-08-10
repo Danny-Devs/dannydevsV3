@@ -17,12 +17,17 @@ onMounted(() => {
     <div class="sm:w-3/5 px-4" text-left mx-auto flex flex-col gap-2 items-start>
       <a href="https://cute-horse-892b24.netlify.app/" target="_blank">
         <p dark:text-cyan-400 text-cyan-600 text-xl pb-1 hover:underline>
-          Responsive website with dark mode
+          Responsive Website with Dark Mode
         </p>
       </a>
       <a href="https://merry-alpaca-3a7e8d.netlify.app/" target="_blank">
         <p dark:text-cyan-400 text-cyan-600 text-xl pb-1 hover:underline>
-          Actionator: Focus on your to-dos one at a time
+          Actionator: Focus on your To-dos One at a Time
+        </p>
+      </a>
+      <a href="https://voluble-cajeta-cfc1e2.netlify.app/" target="_blank">
+        <p dark:text-cyan-400 text-cyan-600 text-xl pb-1 hover:underline>
+          Responsive Credit Card Form with Validation
         </p>
       </a>
     </div>
