@@ -16,20 +16,20 @@ onMounted(() => {
       </p>
 
       <div flex flex-col items-start text-left>
-        <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/005">
+        <RouterLink hover:underline text-xl pb-2 dark:text-cyan-400 text-cyan-600 to="/blog/005">
           005: Become a Web Jedi with Vue 3
         </RouterLink>
-        <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/004">
+        <RouterLink hover:underline text-xl pb-2 dark:text-cyan-400 text-cyan-600 to="/blog/004">
           004: Managing Different Screen Sizes with Responsive Design
         </RouterLink>
-        <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/003">
+        <RouterLink hover:underline text-xl pb-2 dark:text-cyan-400 text-cyan-600 to="/blog/003">
           003: Branding DannyDevs: Art Asset Production and Management
         </RouterLink>
 
-        <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/002">
+        <RouterLink hover:underline text-xl pb-2 dark:text-cyan-400 text-cyan-600 to="/blog/002">
           002: Why Vue 3 is Poised for a Golden Age
         </RouterLink>
-        <RouterLink hover:underline text-xl pb-1 dark:text-cyan-400 text-cyan-600 to="/blog/001">
+        <RouterLink hover:underline text-xl pb-2 dark:text-cyan-400 text-cyan-600 to="/blog/001">
           001: How I made this blog post
         </RouterLink>
       </div>
