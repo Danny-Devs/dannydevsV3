@@ -10,7 +10,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div container mx-auto px-4 pt-6 pb-24 min-h-screen dark:text-cyan-300>
+  <div container mx-auto px-4 pt-6 pb-24 min-h-screen dark:bg-slate-900 dark:text-cyan-300>
     <Links />
   </div>
 </template>
@@ -21,5 +21,5 @@ onMounted(() => {
 
 <route lang="yaml">
 meta:
-  layout: matrix
+  layout: home
 </route>
