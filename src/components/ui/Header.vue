@@ -11,7 +11,7 @@ const props = defineProps({
   <main sm:px-6 container mx-auto dark:bg-slate-900 :class="color" flex justify-between items-center>
     <!-- logo -->
     <router-link to="/">
-      <div pl-3 pt-7 pb-3 class="sm:active:scale-108" transition>
+      <div pl-3 pt-5 pb-3 class="sm:active:scale-108" transition>
         <div v-if="!isDark" flex>
           <img w-40 src="/dannydevs-logo.png" alt="DannyDevs logo">
           <img class="blinking-cursor" w-4 src="/dannydevs-logo-cursor-black.png" alt="part of logo">
@@ -32,7 +32,7 @@ const props = defineProps({
       </div>
 
       <!-- navigation links for sm: and up -->
-      <section hidden sm:block dark:text-cyan-400 mt-1 class="dark:hover:text-cyan-300">
+      <section hidden sm:block dark:text-cyan-400 class="dark:hover:text-cyan-300">
         <div class="flex" gap-2 text>
           <router-link
             to="/lab"
@@ -62,8 +62,8 @@ const props = defineProps({
       </section>
       <!-- end navigation links for sm: and up -->
 
-      <!-- light/dark togle -->
-      <div mt-3 sm:mt-0 hover:scale-110 transition hover:cursor-pointer @click="toggleDark()">
+      <!-- light/dark toggle -->
+      <div mt-3 class="sm:-mt-1" hover:scale-110 transition hover:cursor-pointer @click="toggleDark()">
         <div
           v-if="!isDark"
           mr-2
