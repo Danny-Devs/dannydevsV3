@@ -47,13 +47,10 @@ const closeModal = () => {
 onClickOutside(modalCard, () => {
   showDizzy.value = false
 })
-
-
 </script>
 
 <template>
   <main container mx-auto h-full>
-
     <!-- spacer -->
     <div py-5 />
 
@@ -185,6 +182,9 @@ onClickOutside(modalCard, () => {
           </router-link>.
         </p>
       </div>
+      <!-- spacer for mobile footer -->
+      <div py-8 />
+      <!-- spacer for mobile footer -->
     </div>
     <!-- end main content -->
   </main>

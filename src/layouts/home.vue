@@ -1,5 +1,5 @@
 <template>
-  <main class=" bg-red-100  dark:bg-slate-900 h-screen">
+  <main class=" bg-red-100  dark:bg-slate-900">
     <!-- mobile header -->
     <Header />
 
