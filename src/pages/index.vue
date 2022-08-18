@@ -183,7 +183,7 @@ onClickOutside(modalCard, () => {
         </p>
       </div>
       <!-- spacer for mobile footer -->
-      <div py-8 />
+      <div py-8 sm:py-0 />
       <!-- spacer for mobile footer -->
     </div>
     <!-- end main content -->
