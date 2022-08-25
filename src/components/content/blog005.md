@@ -8,7 +8,7 @@ I have found that using a Vue starter template (specifically, the [Vitesse](http
 
 Vitesse's added features are listed below, along with a brief description of why they are so useful:
 
-### Vitesse features:
+## Vitesse features
 
 - **file-based routing**
 
@@ -37,13 +37,13 @@ import Unocss from 'unocss/vite'
 export default {
   plugins: [
     Unocss({
-      shortcuts: [
+      shortcuts: {
         // shortcuts to multiple utilities
         'btn': 'py-2 px-4 font-semibold rounded-lg shadow-md',
         'btn-green': 'text-white bg-green-500 hover:bg-green-700',
         // single utility alias
         'red': 'text-red-100'
-      ],
+      },
     }),
   ],
 }
@@ -75,11 +75,7 @@ To set up the template as a new project, I would recommend using [degit](https:/
 
 > Tip: I like to open my command prompt from a folder by right-clicking and selecting "Cmder here". This will conveniently open up a Cmder console window with that folder as the working directory. I'm on a Windows machine. I use [Cmder](https://github.com/cmderdev/cmder) rather than the built-in Command Prompt or Powershell because it recognizes Unix Bash commands and looks nice.
 
-So from your project folder, degit Vitesse:
-
-```
-degit antfu/vitesse
-```
+So from your project folder, degit Vitesse in the terminal: `degit antfu/vitesse`
 
 Voila! You have a brand new Vitesse starter project ready to go. I would suggest setting your project up with git/Github, then immediately deploying it onto the web (I happen to use Netlify, but there's also Vercel and others). Netlify looks at your Github repo, and when it changes, re-builds your website and attempts to deploy the new build. If it fails, it errors out; if it succeeds, your website is now updated to that particular Github commit.
 
