@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Auth: typeof import('./components/Auth.vue')['default']
     Blog001: typeof import('./components/content/blog001.md')['default']
     Blog002: typeof import('./components/content/blog002.md')['default']
     Blog003: typeof import('./components/content/blog003.md')['default']
@@ -29,6 +30,7 @@ declare module '@vue/runtime-core' {
     Lab008c: typeof import('./components/content/lab008c.md')['default']
     Lab009: typeof import('./components/content/lab009.md')['default']
     Lab010: typeof import('./components/content/lab010.md')['default']
+    Lab011: typeof import('./components/content/lab011.md')['default']
     Links: typeof import('./components/content/links.md')['default']
     MobileNavbar: typeof import('./components/ui/MobileNavbar.vue')['default']
     Modal: typeof import('./components/ui/Modal.vue')['default']
